@@ -1,0 +1,18 @@
+#app_container{
+    display: flex;
+    max-width: 100vw;
+    min-height: 69rem;
+    border-radius: 10px;   
+    overflow: hidden; 
+    background-color: var(--green_300);    
+}
+
+#form_container{
+    width: 45%;
+    padding: 2rem;
+    border: 1px solid;
+}
+
+#map_container{
+    width: 55%;
+}

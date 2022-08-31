@@ -1,0 +1,42 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Barlow+Semi+Condensed:wght@400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Dosis:wght@700&display=swap');
+
+:root{
+    --green_100: #24C381;
+    --green_200: #06894C;
+    --green_300: #3B6568;
+    --green_400: #284D51;
+    --font: 'Barlow Semi Condensed', sans-serif;
+    --secondary_font:  'Dosis', sans-serif;
+}
+
+*{
+    margin: 0;
+    padding: 0;
+}
+
+*,
+*::before,
+*::after{
+    box-sizing: inherit;
+}
+
+
+html{
+    box-sizing: border-box;
+    font-size: 62.5%;
+    min-height: calc(100vh - 2 * 4vw);
+}
+
+body{
+    font-family: var(--font);
+    line-height: 1.6;
+    margin: 1rem;
+    background-color: var(--green_200);
+}
+
+img{
+    display: block;
+    width: 100%;
+}

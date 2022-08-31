@@ -1,0 +1,28 @@
+#workouts_list{
+    position: relative;
+    display: flex;
+    height: 100%;
+}
+
+#empty_message{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    width: 100%;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 2rem;
+}
+
+#empty_message img{
+    max-width: 40px;
+}
+
+#empty_message h2{
+    color: var(--green_100);
+    font-size: 4rem;
+    letter-spacing: 0.05rem;
+}
