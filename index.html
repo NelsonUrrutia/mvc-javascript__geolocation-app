@@ -15,15 +15,78 @@
             <div id="widgets_container">
                 <div id="clock">
                     <h3>16:56</h3>
-                    <p>Martes 25 de Septiembre</p>
+                    <p> September 15</p>
                 </div>
                 <div id="weather">
                     <img src="images/cloud-drizzle.svg" alt="weather conditions">
                     <p>Modarate Rain</p>
                 </div>
             </div>
+
+            <div id="sort_menu">                
+                <select name="workout-types-filter" id="workouts_type_filter">
+                    <option value="" disabled selected>Workout Type</option>
+                    <option value="running">Running</option>
+                    <option value="cycling">Cycling</option>
+                </select>
+                <select name="workout-prop" id="workouts_prop">
+                    <option value="" disabled selected>Workout Props</option>
+                    <option value="time">Time</option>
+                    <option value="distance">Distance</option>
+                </select>
+                <button id="sort_ascending">
+                    <img src="images/arrow-up-circle.svg" alt="Sort Ascending">
+                </button>
+                <button id="sort_descending">
+                    <img src="images/arrow-down-circle.svg" alt="Sort Descending">
+                </button>
+                <button id="reset_filters">
+                    <img src="images/refresh-cw.svg" alt="Reset Filters">    
+                </button>
+                <button id="delete_all_workouts">
+                    <img src="images/trash.svg" alt="Delete all workouts">
+                </button>
+            </div>
+
             <div id="workouts_list">
-                <div id="empty_message">
+                <div class="workout_card" workout-type="running">
+                    <h3>Running</h3>
+                    <p>September 15, Santa Ana</p>                  
+                    <ul class="workout_info">
+                        <li>🏃🏻‍♂️ 5 <span>KM</span></li>
+                        <li>⏱️ 50 <span>MIN</span></li>
+                        <li>👟 10 <span>cadence</span></li>
+                    </ul> 
+                    <div class="workout_card__actions">
+                        <button class="edit_workout">
+                            <img src="images/edit.svg" alt="Edit Workout">
+                        </button>
+                        <button class="delete_workout">
+                            <img src="images/trash.svg" alt="Delete Workout">
+                        </button>
+                    </div>           
+                </div>
+
+                <div class="workout_card" workout-type="cycling">
+                    <h3>Cycling</h3>
+                    <p>September 25, Santa Tecla</p>
+                    <ul class="workout_info">
+                        <li>🚲 15 <span>KM</span></li>
+                        <li>⏱️ 150 <span>MIN</span></li>
+                        <li>⚡  50 <span>km/h</span></li>
+                        <li>🗻 5 <span>M</span></li>
+                    </ul>
+                    <div class="workout_card__actions">
+                        <button class="edit_workout">
+                            <img src="images/edit.svg" alt="Edit Workout">
+                        </button>
+                        <button class="delete_workout">
+                            <img src="images/trash.svg" alt="Delete Workout">
+                        </button>
+                    </div> 
+                </div>
+
+                <div id="empty_message" is-active="false">
                     <h2>NO WORKOUTS SAVED</h2>
                 </div>
             </div>

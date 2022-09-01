@@ -1,28 +1,125 @@
 #workouts_list{
     position: relative;
     display: flex;
+    flex-direction: column;
     height: 100%;
+    padding: 3rem 0rem;
+    overflow-y: scroll;
+    overflow-x: auto;
+    -ms-overflow-style: none;
+    scrollbar-width: none;
 }
 
+#workouts_list::-webkit-scrollbar {
+    display: none;
+}
+
+
+/* Workout Card */
+
+.workout_card{
+    position: relative;
+    width: 100%;
+    padding: 1.5rem 1.5rem 1.5rem 2rem;
+    background-color: var(--green_400);
+    margin-bottom: 2rem;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.workout_card::after{
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 10px;
+    height: 100%;
+    border-radius: 5px 0px 0px 5px;
+}
+
+.workout_card[workout-type="running"]::after{
+    background-color: var(--green_100);
+}
+
+.workout_card[workout-type="cycling"]::after{
+    background-color: var(--green_200);
+}
+
+.workout_card :is(p, li){
+    font-size: 1.6rem;
+    letter-spacing: 0.05rem;
+}
+
+.workout_card h3{
+    font-size: 2rem;
+    letter-spacing: 0.08rem;
+    margin-bottom: 0.5rem;    
+    font-family: var(--secondary_font);
+}
+
+.workout_card ul{
+    list-style: none;
+    display: flex;
+    gap: 1.5rem;
+    margin-top: 1rem;
+}
+
+.workout_card span{
+    font-size: 1.2rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.05rem;
+}
+
+
+/* Workout card actions */
+
+.workout_card__actions{
+    position: absolute;
+    bottom: 1rem;
+    right: 1rem;
+    width: 10rem;
+    display: flex;
+    gap: 1rem;
+}
+
+.workout_card__actions button{
+    cursor: pointer;
+    background: transparent;
+    border: none;
+    border-radius: 5px;
+    padding: 1rem;
+    flex: 0 0 auto;
+}
+
+.workout_card__actions button:hover{
+    background-color: var(--green_300);
+}
+
+.workout_card__actions button:hover img{
+    opacity: 0.8;
+}
+
+/* Empty Message */
+
 #empty_message{
+    display: none;
     position: absolute;
     top: 50%;
     left: 50%;
     transform: translate(-50%,-50%);
     width: 100%;
-    text-align: center;
-    display: flex;
+    text-align: center;    
     align-items: center;
     justify-content: center;
     gap: 2rem;
 }
 
-#empty_message img{
-    max-width: 40px;
+#empty_message[is-active='true']{
+    display: flex;
 }
 
 #empty_message h2{
-    color: var(--green_100);
     font-size: 4rem;
     letter-spacing: 0.05rem;
 }

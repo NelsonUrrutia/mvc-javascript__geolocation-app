@@ -6,7 +6,8 @@
     --green_100: #24C381;
     --green_200: #06894C;
     --green_300: #3B6568;
-    --green_400: #284D51;
+    --green_400: #345b5e;
+    --green_500: #284D51;
     --font: 'Barlow Semi Condensed', sans-serif;
     --secondary_font:  'Dosis', sans-serif;
 }
@@ -32,8 +33,14 @@ html{
 body{
     font-family: var(--font);
     line-height: 1.6;
-    margin: 1rem;
-    background-color: var(--green_200);
+    background-color: var(--green_500);
+    min-height: calc(100vh - 2 * 4vw);
+    overflow: hidden;
+}
+
+body :is(h1,h2,h3,p,span,li,a,option){
+    color: var(--green_100);
+    font-family: var(--font);
 }
 
 img{
