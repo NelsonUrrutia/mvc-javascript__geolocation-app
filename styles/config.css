@@ -3,11 +3,21 @@
 @import url('https://fonts.googleapis.com/css2?family=Dosis:wght@700&display=swap');
 
 :root{
-    --green_100: #24C381;
-    --green_200: #06894C;
-    --green_300: #3B6568;
-    --green_400: #345b5e;
-    --green_500: #284D51;
+
+    --white_100: #f2f2f2;
+    --white_200: #E0E0E0;
+    --white_300: #BDBDBD;
+
+    --grey_400: #828282;
+    --grey_500: #4F4F4F;
+    --grey_600: #333333;
+
+    --grey_500_rgba: rgba(79,79,79,0.8);
+
+    --red: #EB5757;
+    --blue: #2F80ED;
+    --yellow: #ed842f;
+
     --font: 'Barlow Semi Condensed', sans-serif;
     --secondary_font:  'Dosis', sans-serif;
 }
@@ -30,16 +40,22 @@ html{
     min-height: calc(100vh - 2 * 4vw);
 }
 
+@media (max-width: 500px){
+    html{
+        font-size: 50%;        
+    }
+}
+
 body{
     font-family: var(--font);
     line-height: 1.6;
-    background-color: var(--green_500);
+    background-color: var(--white_100);
     min-height: calc(100vh - 2 * 4vw);
     overflow: hidden;
 }
 
 body :is(h1,h2,h3,p,span,li,a,option){
-    color: var(--green_100);
+    color: var(--grey_600);
     font-family: var(--font);
 }
 

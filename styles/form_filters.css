@@ -1,12 +1,12 @@
 #sort_menu{
     position: relative;
+    max-width: 45rem;
     width: 100%;
     display: flex;
-    justify-content: space-evenly;
-    background-color: var(--green_400);
+    justify-content: space-between;
+    background-color: var(--white_200);
     padding: 1.5rem;
     border-radius: 5px;
-    margin-top: 2rem;
     gap: 1rem;
 }
 
@@ -16,30 +16,65 @@
 
 /* Dropdowns */
 
+.sorting_dropdowns{
+    display: flex;
+    width: 60%;
+    gap: 1rem;
+}
 
 #sort_menu select{
-    width: 14.5rem;
-    background-color: var(--green_500);
+    width: 50%;
     border-radius: 5px;
     border: none;
-    color: var(--green_100);
-    padding: 0.5rem 0.8rem;
+    color: var(--grey_600);
+    padding: 0.5rem;
 }
 
 /* Button */
+
+.sorting_buttons{
+    display: flex;
+    width: 35%;
+    gap: 0.1rem;
+}
+
+
 #sort_menu button{
     background-color: transparent;
     border: none;
-    padding: 0.25rem;
+    padding: 0.5rem  0.25rem;
     border-radius: 5px;
     cursor: pointer;
-    width: 3rem;
+    width: 25%;
+}
+
+#sort_menu button img{
+    max-width: 80%;
+    margin: 0 auto;
 }
 
 #sort_menu button:hover{
-    background-color: var(--green_300);
+    background-color: var(--white_100);
 }
 
 #sort_menu button:hover img{
     opacity: 0.8;
+}
+
+/* Common Styles Media Query */
+
+@media(max-width: 1440px){ 
+    .sorting_dropdowns{
+        width: 50%;
+        flex-direction: column;
+    }
+
+    #sort_menu select{
+        width: 100%;
+    }
+
+    .sorting_buttons{
+        width: 50%;    
+        align-items: center;          
+    }
 }
