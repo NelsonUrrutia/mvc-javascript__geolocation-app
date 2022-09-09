@@ -2,12 +2,16 @@
     position: relative;
     max-width: 45rem;
     width: 100%;
-    display: flex;
+    display: none;
     justify-content: space-between;
     background-color: var(--white_200);
     padding: 1.5rem;
     border-radius: 5px;
     gap: 1rem;
+}
+
+#sort_menu[is-active='true']{
+    display: flex;
 }
 
 #filter_img{

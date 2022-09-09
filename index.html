@@ -18,7 +18,7 @@
 
     <section id="app_container">
         <div id="form_container">
-            <div id="sort_menu"> 
+            <div id="sort_menu" is-active="false"> 
                 <div class="sorting_dropdowns">
                     <select name="workout-types-filter" id="workouts_type_filter">
                         <option value="" disabled selected>Workout Type</option>
@@ -48,7 +48,7 @@
             </div>
 
             <div id="workouts_list">
-                <div class="workout_card" workout-type="running">
+                <!-- <div class="workout_card" workout-type="running">
                     <h3>Running</h3>
                     <p>September 15, Santa Ana</p>                  
                     <ul class="workout_info">
@@ -83,7 +83,7 @@
                             <img src="images/trash.svg" alt="Delete Workout">
                         </button>
                     </div> 
-                </div>
+                </div> -->
             </div>
 
             <div id="empty_message" is-active="false">
@@ -92,7 +92,7 @@
         </div>
 
         <div id="map_container">
-            <img src="images/world-map.gif" alt="" srcset="" height="100%">
+
         </div>
 
     </section>
