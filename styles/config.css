@@ -54,7 +54,7 @@ body{
     overflow: hidden;
 }
 
-body :is(h1,h2,h3,p,span,li,a,option){
+body :is(h1,h2,h3,p,span,li,a,option,label,input,select,button){
     color: var(--grey_600);
     font-family: var(--font);
 }
@@ -71,4 +71,8 @@ img{
     top:50%;
     left: 50%;
     transform: translate(-50%, -50%);
+}
+
+.hidden{
+    display: none !important;
 }

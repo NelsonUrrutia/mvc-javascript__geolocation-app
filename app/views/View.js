@@ -30,12 +30,5 @@ export default class View{
     clear(){
         this._dom_parent_element.innerHTML  = "";
     }
-
-    /**
-     * ---------------
-     * PRIVATE METHOD
-     * ---------------
-     */
-
 }
 

@@ -107,7 +107,7 @@
 /* Empty Message */
 
 #empty_message{
-    display: none;
+    display: flex;
     position: absolute;
     top: 50%;
     left: 50%;
@@ -117,10 +117,6 @@
     align-items: center;
     justify-content: center;
     gap: 2rem;
-}
-
-#empty_message[is-active='true']{
-    display: flex;
 }
 
 #empty_message h2{

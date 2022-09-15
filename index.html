@@ -46,6 +46,41 @@
                     </button>
                 </div>
             </div>
+            
+            <form action="" id="workout_form" class="hidden" >
+
+                <input type="hidden" name="latitude" id="workout_form__lat">
+                <input type="hidden" name="longitude" id="workout_form__lng">
+
+                <div class="form__row">
+                    <label class="form__label">Type</label>
+                    <select class="form__input form__input--type" name="workout_type">
+                        <option value="running">Running</option>
+                        <option value="cycling">Cycling</option>
+                    </select>
+                </div>
+                <div class="form__row">
+                    <label class="form__label">Distance</label>
+                    <input class="form__input form__input--distance" placeholder="km" min="0" type="number" required name="distance"/>
+                </div>
+                <div class="form__row">
+                    <label class="form__label">Duration</label>
+                    <input class="form__input form__input--duration" placeholder="min" min="0" type="number" required name="duration"/>
+                </div>
+                <div class="form__row " cadence>
+                    <label class="form__label">Cadence</label>
+                    <input class="form__input form__input--cadence" placeholder="step/min" min="0" type="number"  name="cadence"/>
+                </div>
+                <div class="form__row form__row hidden" elev-gain>
+                    <label class="form__label">Elev Gain</label>
+                    <input class="form__input form__input--elevation" placeholder="meters" min="0" type="number"  name="elevGain"/>
+                </div>
+
+                <div class="form__row">
+                    <button class="form__btn" type="submit">OK</button>
+                </div>
+            </form>
+        
 
             <div id="workouts_list">
                 <!-- <div class="workout_card" workout-type="running">
@@ -86,7 +121,7 @@
                 </div> -->
             </div>
 
-            <div id="empty_message" is-active="false">
+            <div id="empty_message" class="hidden">
                 <h2>NO WORKOUTS SAVED</h2>
             </div>
         </div>

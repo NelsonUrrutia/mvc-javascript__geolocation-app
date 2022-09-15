@@ -1,64 +1,32 @@
-import { EL_SALVADOR_COORD } from "../conf.js";
-import mapView from "../views/MapView.js"
+import MapView from "../views/MapView.js";
+import AddWorkout from "../views/AddWorkout.js";
 
-/**
- * ### Get User Position
- * Call on app start
- * Get the location of the user, ussing Geolocation Web API
- * If could not get use location, default coords will be use
- */
+import { State } from "../models/State.js";
+import { set_location_state } from "../models/_map.js";
 
-const get_user_position = function(){
-    if(navigator.geolocation){
-        navigator.geolocation.getCurrentPosition(
-            get_coords,            
-            backup_map          
-        )
-    }
+
+const clickEvent = function(event){
+    //1. Get latitude & longitude from the event
+    const {lat, lng} = event.latlng;
+
+    //2. Show workout form
+    AddWorkout.show_add_workout_form();
+
+    //3. Set coord in workout form
+    AddWorkout._fill_coords_input(lat, lng)
 }
 
-/**
- * ### Get Coords
- * Recieves Geolocation Object with the navigator geolocation position
- * @param { Geolocation } position 
- */
-function get_coords(position){      
-    //1. Render Spinner
-    mapView.render_spinner();
-        
-    //2. Get latitude & longitude
-    const {latitude, longitude} = position.coords; 
 
-    //3. Passing parameters to Map View
-    mapView._render_map(latitude, longitude);    
+const render_map = async function(){
+
+    //1. Call method to set location on State
+    await set_location_state();
+
+    //2. Init MapView Object
+    //Passing the location (saved in State) & callback to click event
+    const map = new MapView([State.user_location.latitude,State.user_location.longitude], clickEvent);
 }
 
-/**
- * ### Backup Function
- * If user denied location, by default will use El Salvador coords
- */
-
-function backup_map(){
-    //1. Render Spinner
-    mapView.render_spinner();
-    
-    //2. Get latitude & longitude
-    const {latitude, longitude} = EL_SALVADOR_COORD; 
-
-    //3. Passing parameters to Map View
-    mapView._render_map(latitude, longitude); 
-}
-
-/**
- * ### Subscriber Click Event 
- */
-const click_on_map = function(){
-    console.log('Hello there');
-
-    //1. Show Form
-
-    //2. Mark on map the location
-}
 
 
 
@@ -69,7 +37,5 @@ const click_on_map = function(){
  */
 
 export const init_map_controller = function(){
-    get_user_position();
-    mapView.addHandler_click_map(click_on_map)
+    render_map();
 }
-
