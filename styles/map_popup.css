@@ -1,3 +1,7 @@
+.leaflet-popup-content-wrapper{
+    border-radius: 5px !important;
+}
+
 .leaflet-popup-content-wrapper, .leaflet-popup-tip{
     position: relative;
     background-color: var(--white_200) !important;

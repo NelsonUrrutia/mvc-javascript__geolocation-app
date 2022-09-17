@@ -21,9 +21,7 @@ class AddWorkout{
             //2. Toggle 'hidden' class on inputs
             parent_element.querySelector("[cadence]").classList.toggle('hidden');
             parent_element.querySelector("[elev-gain]").classList.toggle('hidden');
-            document.querySelector('.form__input--cadence, .form__input--elevation').value = '';
-            
-
+            document.querySelector('.form__input--cadence, .form__input--elevation').value = '';      
         })
     }
 

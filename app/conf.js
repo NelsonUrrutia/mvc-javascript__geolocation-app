@@ -10,3 +10,5 @@ export const API_REVERSE_GEOCODE_OPTIONS = {
 		'X-RapidAPI-Host': 'geocodeapi.p.rapidapi.com'
 	}
 };
+
+export const MONTHS = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December']
