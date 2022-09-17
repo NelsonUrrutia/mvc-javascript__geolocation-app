@@ -1,0 +1,39 @@
+.leaflet-popup-content-wrapper, .leaflet-popup-tip{
+    position: relative;
+    background-color: var(--white_200) !important;
+    color: var(--grey_600) !important;
+}
+
+.leaflet-popup-content{
+    font-size: 1.5rem !important;
+    letter-spacing: 0.05rem;    
+    font-family: var(--secondary_font);
+    text-transform: capitalize;
+}
+
+.leaflet-popup-close-button span{
+    font-size: 3rem;
+    color: var(--grey_600);
+}
+
+.running-popup::after{
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 5px;
+    height: 100%;
+    border-radius: 5px 0px 0px 5px;
+    background-color: var(--red)
+}
+
+.cycling-popup::after{
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 5px;
+    height: 100%;
+    border-radius: 5px 0px 0px 5px;
+    background-color: var(--blue)
+}

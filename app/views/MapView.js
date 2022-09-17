@@ -1,5 +1,5 @@
-
 import  View from './View.js';
+
 export default  class MapView extends View{
     #map;    
     #map_zoom_level = 13;
@@ -9,6 +9,22 @@ export default  class MapView extends View{
     constructor([lat,lon], click_event){
         super();
         this._render_map([lat,lon], click_event)
+    }
+
+    _mark_on_map(lat, lng, workout_type){
+        L.marker([lat,lng])
+        .addTo(this.#map)
+        .bindPopup(
+            L.popup({
+                maxWidth: 250,
+                minWidth: 100,
+                autoClose: false,
+                closeOnClick: false,
+                className: `${workout_type}-popup`,
+            })
+        )
+        .setPopupContent(`${workout_type}`)
+        .openPopup();
     }
 
     _render_map([lat,lon], click_event){

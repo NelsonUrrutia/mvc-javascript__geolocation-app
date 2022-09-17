@@ -12,6 +12,7 @@ class AddWorkout{
      * ### Handler for dropdown with workouts types
      * Toggle hidden class between inputs
      */
+    
     addHandlerChangeWorkout(){        
         this.#form.querySelector('.form__input--type').addEventListener("change", function(e){
             //1. Select parent element
@@ -34,11 +35,11 @@ class AddWorkout{
         })
     }
 
-    show_add_workout_form(){
+    show_workout_form(){
         this.#form.classList.remove('hidden');
     }
 
-    hide_add_workout_form(){
+    hide_workout_form(){
         this.#form.classList.add('hidden');
     }
 
@@ -55,6 +56,10 @@ class AddWorkout{
     _fill_coords_input(lat, lng){
         this.#form.querySelector('#workout_form__lat').value = lat;
         this.#form.querySelector('#workout_form__lng').value = lng;
+    }
+
+    _clear_workout_inputs(){
+        this.#form.querySelectorAll('input[type="number"]').forEach( el => el.value = '');
     }
 }
 
