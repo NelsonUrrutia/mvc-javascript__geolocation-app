@@ -17,8 +17,10 @@ const clickEvent = function(event){
     AddWorkout._fill_coords_input(lat, lng)
 }
 
-const mark_saved_workouts = function(){    
+const mark_saved_workouts = function(){       
     const workouts = get_workouts();
+    if(!workouts) return;
+
     workouts.forEach(el => {
         const { latitude, longitude} = el.workout_coords;
         const workout_type = el.workout_type;

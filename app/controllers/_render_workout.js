@@ -1,11 +1,11 @@
 import { State } from "../models/State.js";
-import { get_saved_workouts } from "../models/_workout.js";
+import { get_saved_workouts, init_state_workouts } from "../models/_workout.js";
 
 import RenderWorkouts from "../views/RenderWorkouts.js";
 
 
 export const render_workouts_cards = function(){
-    
+        
     //1. Render Spinner
     RenderWorkouts.render_spinner();
 
@@ -29,4 +29,5 @@ export const get_workouts = function(){
 
 export const init_render_workouts = function(){
     render_workouts_cards();
+    init_state_workouts()
 }

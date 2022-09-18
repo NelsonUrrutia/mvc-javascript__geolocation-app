@@ -25,9 +25,14 @@ class AddWorkout{
         })
     }
 
+    /**
+     * ### Handler for form submit event
+     * @param {Function} handler 
+     */
+
     addHandlerSubmit(handler){
         this.#form.addEventListener('submit', function(e){
-            e.preventDefault();
+            e.preventDefault();            
             const form_data = [...new FormData(this)]
             handler(form_data)
         })

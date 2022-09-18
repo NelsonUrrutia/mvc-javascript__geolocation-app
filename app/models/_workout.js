@@ -1,7 +1,7 @@
 import { State } from "./State.js";
 import { MONTHS } from "../conf.js";
 
-const persist_workouts = function(){
+const persist_workouts = function(){    
     localStorage.setItem('workouts', JSON.stringify(State.workouts))
 }
 
@@ -12,7 +12,8 @@ const set_workout_description = function(){
     return `${set_month} ${set_day}`;
 }
 
-export const save_workout = function(data){        
+export const save_workout = function(data){       
+    
     //1. Destructuring Data 
     const [ [key_l, latitude], [key_lng, longitude], [key_w,workout_type],
     [key_d, distance], [key_dr, duration], [key_c, cadence], [key_el, elevGain]] = data;
@@ -47,6 +48,21 @@ export const save_workout = function(data){
 
 export const get_saved_workouts = function(){
     const workouts = JSON.parse(localStorage.getItem("workouts"));
+    if(!workouts) return;
     return workouts;    
+}
+
+export const init_state_workouts = function(){
+    
+    //1. Get workouts saved on local Storage
+    const workouts = get_saved_workouts();
+
+    //2. Check if its empty
+    if(!workouts) return;
+
+    //3. Save on State 
+    workouts.forEach( el => {
+        State.workouts.push(el);
+    })
 }
 

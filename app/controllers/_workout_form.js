@@ -3,7 +3,7 @@ import { save_workout } from "../models/_workout.js";
 import { mark_pin_on_map } from "./_map.js";
 import { render_workouts_cards } from "./_render_workout.js";
 
-const submit_event = (data) =>{
+const submit_event = function(data){    
     //1. Passing data to workout model
     save_workout(data);
 
