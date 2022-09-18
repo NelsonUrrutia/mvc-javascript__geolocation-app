@@ -1,5 +1,5 @@
 class AddWorkout{
-
+    
     #form = document.querySelector('#workout_form');
 
     /**

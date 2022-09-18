@@ -1,7 +1,7 @@
 import AddWorkout from "../views/AddWorkout.js";
 import { save_workout } from "../models/_workout.js";
 import { mark_pin_on_map } from "./_map.js";
-
+import { render_workouts } from "./_render_workout.js";
 
 const submit_event = (data) =>{
     //1. Passing data to workout model
@@ -13,7 +13,10 @@ const submit_event = (data) =>{
 
     //3. Passing coord to map controller
     const [[key_l,latitude], [key_ln,longitude], [key_w, workout_type],...rest] = data;
-    mark_pin_on_map(latitude,longitude, workout_type)
+    mark_pin_on_map(latitude,longitude, workout_type);
+
+    //4. Render card with new workout
+    render_workouts();
 }
 
 /**

@@ -1,8 +1,7 @@
 #sort_menu{
-    position: relative;
-    max-width: 45rem;
+    position: relative;    
     width: 100%;
-    display: none;
+    display: flex;
     justify-content: space-between;
     background-color: var(--white_200);
     padding: 1.5rem;
@@ -10,9 +9,6 @@
     gap: 1rem;
 }
 
-#sort_menu[is-active='true']{
-    display: flex;
-}
 
 #filter_img{
     max-width: 2.4rem;

@@ -2,8 +2,7 @@
     position: relative;
     display: flex;
     flex-direction: column;
-    padding: 3rem 0rem;
-    max-width: 45rem;
+    padding: 3rem 0rem;    
     width: 100%;
     overflow-y: scroll;
     overflow-x: auto;
@@ -56,6 +55,7 @@
 }
 
 .workout_card h3{
+    text-transform: capitalize;
     font-size: 2.5rem;
     letter-spacing: 0.08rem;
     margin-bottom: 0.5rem;    
@@ -122,4 +122,5 @@
 #empty_message h2{
     font-size: 4rem;
     letter-spacing: 0.05rem;
+    color: var(--yellow);
 }

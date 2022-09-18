@@ -5,11 +5,11 @@ const persist_workouts = function(){
     localStorage.setItem('workouts', JSON.stringify(State.workouts))
 }
 
-const set_workout_description = function(workout_type){
+const set_workout_description = function(){
     const date = new Date();
     const set_month = MONTHS[date.getMonth()];
     const set_day = date.getDate();
-    return `${workout_type}, ${set_month}/${set_day}`;
+    return `${set_month} ${set_day}`;
 }
 
 export const save_workout = function(data){
@@ -22,7 +22,7 @@ export const save_workout = function(data){
     const id = (Date.now() + '').slice(-10);    
         
     //3. Creating Description  
-    const workout_description = set_workout_description(workout_type)    
+    const workout_description = set_workout_description()    
     
     //4. Creating workout obj    
     const workout = {
@@ -44,5 +44,10 @@ export const save_workout = function(data){
 
     //6. Persist the new workouts
     persist_workouts();
+}
+
+export const get_saved_workouts = function(){
+    const workouts = JSON.parse(localStorage.getItem("workouts"));
+    return workouts;    
 }
 
