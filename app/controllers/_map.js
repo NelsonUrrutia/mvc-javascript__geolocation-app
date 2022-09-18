@@ -4,7 +4,7 @@ import AddWorkout from "../views/AddWorkout.js";
 import { State } from "../models/State.js";
 import { reverse_geocoding, set_location_state } from "../models/_map.js";
 
-let Map = {};
+import { get_workouts } from "./_render_workout.js";
 
 const clickEvent = function(event){
     //1. Get latitude & longitude from the event
@@ -17,23 +17,38 @@ const clickEvent = function(event){
     AddWorkout._fill_coords_input(lat, lng)
 }
 
-export const mark_pin_on_map = async function(lat, lng, workout_type){
+const mark_saved_workouts = function(){    
+    const workouts = get_workouts();
+    workouts.forEach(el => {
+        const { latitude, longitude} = el.workout_coords;
+        const workout_type = el.workout_type;
+        mark_pin_on_map(latitude, longitude,workout_type)
+    })
+}
+
+export const mark_pin_on_map = function(lat, lng, workout_type){
     //1. Passing to a reverse geolocation
     // const reverse_geo_data = await reverse_geocoding(lat, lng);
 
     //2. Passing coords and results of reverse geolocation
-    Map._mark_on_map(lat, lng, workout_type);    
+    MapView.mark_on_map(lat, lng, workout_type);    
 }
 
 
-const render_map = async function(){
+
+const init_map = async function(){
 
     //1. Call method to set location on State
-    await set_location_state();
+    await set_location_state();    
 
-    //2. Init MapView Object
-    //Passing the location (saved in State) & callback to click event
-    Map = new MapView([State.user_location.latitude,State.user_location.longitude], clickEvent);
+    //2. Build map with location
+    MapView._render_map(State.user_location.latitude,State.user_location.longitude)
+
+    //3. Bind click event
+    MapView.addHandlerClickOnMap(clickEvent)
+
+    //4. Show Pin on saved workouts
+    mark_saved_workouts();
 }
 
 /**
@@ -42,6 +57,6 @@ const render_map = async function(){
  * Subscriber to MapView 
  */
 
-export const init_map_controller = function(){
-    render_map();
+export const init_map_controller = function(){    
+    init_map();
 }

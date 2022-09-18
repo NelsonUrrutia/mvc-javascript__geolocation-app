@@ -12,8 +12,7 @@ const set_workout_description = function(){
     return `${set_month} ${set_day}`;
 }
 
-export const save_workout = function(data){
-    
+export const save_workout = function(data){        
     //1. Destructuring Data 
     const [ [key_l, latitude], [key_lng, longitude], [key_w,workout_type],
     [key_d, distance], [key_dr, duration], [key_c, cadence], [key_el, elevGain]] = data;

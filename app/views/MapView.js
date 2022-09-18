@@ -1,17 +1,17 @@
 import  View from './View.js';
 
-export default  class MapView extends View{
+class MapView extends View{
     #map;    
     #map_zoom_level = 13;
     _parent_element = "map_container";
     _dom_parent_element = document.querySelector("#map_container")
 
-    constructor([lat,lon], click_event){
-        super();
-        this._render_map([lat,lon], click_event)
+
+    addHandlerClickOnMap(handler){        
+        this.#map.on('click', handler)
     }
 
-    _mark_on_map(lat, lng, workout_type){
+    mark_on_map(lat, lng, workout_type){        
         L.marker([lat,lng])
         .addTo(this.#map)
         .bindPopup(
@@ -27,8 +27,7 @@ export default  class MapView extends View{
         .openPopup();
     }
 
-    _render_map([lat,lon], click_event){
-
+    _render_map(lat, lon){        
         //1. Clear container
         this.clear();
 
@@ -39,10 +38,7 @@ export default  class MapView extends View{
         L.tileLayer('https://{s}.tile.openstreetmap.fr/hot/{z}/{x}/{y}.png',{
             attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
         }).addTo(this.#map);     
-                
-                
-        //4. Add Events on Map
-        this.#map.on('click', click_event)
     }
-
 }
+
+export default new MapView();
