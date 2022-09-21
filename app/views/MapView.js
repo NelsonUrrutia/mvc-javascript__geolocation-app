@@ -11,6 +11,15 @@ class MapView extends View{
         this.#map.on('click', handler)
     }
 
+    set_view_map(latitude,longitude){
+        this.#map.setView({lat: latitude, lon: longitude}, this.#map_zoom_level, {
+            animate:true,
+            pan:{
+                duration:1
+            }
+        })
+    }
+
     mark_on_map(lat, lng, workout_type){        
         L.marker([lat,lng])
         .addTo(this.#map)

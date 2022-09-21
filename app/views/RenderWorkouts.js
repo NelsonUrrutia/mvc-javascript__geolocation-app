@@ -5,6 +5,10 @@ class RenderWorkouts extends View{
     _dom_parent_element = document.querySelector("#workouts_list");
     _dom_empty_msg = document.querySelector("#empty_message");
 
+    addHandlerWorkoutCard(handler){
+        this._dom_parent_element.addEventListener('click',handler)
+    }
+
     generateMarkup(data){
 
         let workout_info = "";
@@ -32,18 +36,22 @@ class RenderWorkouts extends View{
         }
 
         const workout_card = ` 
-            <div class="workout_card" workout-type="${data.workout_type}" data-workout-id="${data.workout_id}"> 
-                <h3>${data.workout_type}</h3>
-                <p>${data.workout_description}</p> 
-                ${workout_info}
-                <div class="workout_card__actions">
-                    <button class="edit_workout">
-                        <img src="images/edit.svg" alt="Edit Workout">
-                    </button>
-                    <button class="delete_workout">
-                        <img src="images/trash.svg" alt="Delete Workout">
-                    </button>
-                </div> 
+            <div class="workout_card"
+                workout-type="${data.workout_type}" 
+                data-workout-id="${data.workout_id}"
+                data-latitude="${data.workout_coords.latitude}"
+                data-longitude="${data.workout_coords.longitude}" > 
+                    <h3>${data.workout_type}</h3>
+                    <p>${data.workout_description}</p> 
+                    ${workout_info}
+                    <div class="workout_card__actions">
+                        <button class="edit_workout">
+                            <img src="images/edit.svg" alt="Edit Workout">
+                        </button>
+                        <button class="delete_workout">
+                            <img src="images/trash.svg" alt="Delete Workout">
+                        </button>
+                    </div> 
             </div>
         `;
 
