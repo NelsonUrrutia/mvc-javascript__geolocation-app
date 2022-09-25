@@ -1,5 +1,6 @@
 import { State } from "../models/State.js";
-import { get_saved_workouts, init_state_workouts } from "../models/_workout.js";
+import { get_saved_workouts, init_state_workouts, get_workout_by_id } from "../models/_workout.js";
+import AddWorkout from "../views/AddWorkout.js";
 import MapView from "../views/MapView.js";
 
 import RenderWorkouts from "../views/RenderWorkouts.js";
@@ -24,13 +25,29 @@ export const render_workouts_cards = function(){
     workouts.forEach( el => RenderWorkouts.generateMarkup(el));
 }
 
+const edit_workout = function(workout_id){
+
+    //1. Find workout on State
+    const [workout_obj] = get_workout_by_id(workout_id);
+    
+    //2. Set data to inputs form
+    AddWorkout._fill_form_inputs(workout_obj);
+
+    //3. Show form
+    AddWorkout.show_workout_form();
+}
+
 export const click_workout_card_dispatcher = function(event){
     const element_click = event.target;
-    // debugger
     
     // 1. Check if the edit button was clicked
     if(element_click.closest('.edit_workout')){
-        console.log("edit workout");
+
+        //1. Get id of workout card
+        const workout_id = element_click.closest(".workout_card").dataset.workoutId;
+        
+        //2. Passing id to edit function
+        edit_workout(workout_id);
         return
     }
     

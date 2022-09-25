@@ -1,21 +1,30 @@
 import AddWorkout from "../views/AddWorkout.js";
-import { save_workout } from "../models/_workout.js";
+import { edit_workout, save_workout } from "../models/_workout.js";
 import { mark_pin_on_map } from "./_map.js";
 import { render_workouts_cards } from "./_render_workout.js";
 
 const submit_event = function(data){    
-    //1. Passing data to workout model
-    save_workout(data);
+    
+    //1.Get workout id 
+    const [[index, workout_id], ..._] = data; 
 
-    //2. Hide and clean workout form
-    AddWorkout._clear_workout_inputs();
-    AddWorkout.hide_workout_form();
+    //2.Edit workout    
+    if(workout_id !== '') edit_workout(data);
+    
+    //3. Save new workout
+    if(workout_id === ""){
+        save_workout(data);
+    } 
 
-    //3. Passing coord to map controller
-    const [[key_l,latitude], [key_ln,longitude], [key_w, workout_type],...rest] = data;
+    //4. Passing New workout coords to map controller
+    const [[key_wrk,wrk], [key_l,latitude], [key_ln,longitude], [key_w, workout_type],...rest] = data;
     mark_pin_on_map(latitude,longitude, workout_type);
 
-    //4. Render card with new workout
+    //5. Hide and clean workout form
+    AddWorkout.hide_workout_form();
+    AddWorkout._clear_workout_inputs();
+
+    //6. Render card with workout
     render_workouts_cards();
 }
 
@@ -27,5 +36,5 @@ const submit_event = function(data){
 export const init_workout_form = function(){
 
     AddWorkout.addHandlerChangeWorkout()
-    AddWorkout.addHandlerSubmit(submit_event)
+    AddWorkout._addHandlerSubmit(submit_event)
 }
