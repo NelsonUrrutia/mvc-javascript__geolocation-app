@@ -2,9 +2,9 @@ import { State } from "../models/State.js";
 import { get_saved_workouts, init_state_workouts, get_workout_by_id } from "../models/_workout.js";
 import AddWorkout from "../views/AddWorkout.js";
 import MapView from "../views/MapView.js";
-
 import RenderWorkouts from "../views/RenderWorkouts.js";
 
+import { controller_delete_workout } from '../controllers/_workout_form';
 
 export const render_workouts_cards = function(){
         
@@ -42,18 +42,22 @@ export const click_workout_card_dispatcher = function(event){
     
     // 1. Check if the edit button was clicked
     if(element_click.closest('.edit_workout')){
-
-        //1. Get id of workout card
+        //1. Get id from workout card
         const workout_id = element_click.closest(".workout_card").dataset.workoutId;
         
         //2. Passing id to edit function
-        edit_workout(workout_id);
+        edit_workout(workout_id);        
         return
     }
     
     // 2. Check if the delete button was clicked
     if(element_click.closest('.delete_workout')){
-        console.log("delete workout");
+        debugger;
+        //1. Get id from workout card
+        const workout_id = element_click.closest(".workout_card").dataset.workoutId;
+
+        //2. Passing id to delete function
+        controller_delete_workout(workout_id);
         return
     }
     

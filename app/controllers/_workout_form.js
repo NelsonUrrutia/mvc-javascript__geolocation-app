@@ -28,6 +28,13 @@ const submit_event = function(data){
     render_workouts_cards();
 }
 
+export const controller_delete_workout = function(workout_id){
+//1. Delete from state
+//2. Persist to localstorage
+//3. Render cards
+//4. Clear map point
+}
+
 /**
  * ### Workout Controller Initializer
  * Publisher/Subscriber Pattern
