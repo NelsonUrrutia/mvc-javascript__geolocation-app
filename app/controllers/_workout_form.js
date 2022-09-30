@@ -1,5 +1,5 @@
 import AddWorkout from "../views/AddWorkout.js";
-import { edit_workout, save_workout } from "../models/_workout.js";
+import { edit_workout, save_workout, delete_workout } from "../models/_workout.js";
 import { mark_pin_on_map } from "./_map.js";
 import { render_workouts_cards } from "./_render_workout.js";
 
@@ -29,10 +29,16 @@ const submit_event = function(data){
 }
 
 export const controller_delete_workout = function(workout_id){
-//1. Delete from state
-//2. Persist to localstorage
-//3. Render cards
-//4. Clear map point
+    debugger;
+    //1. Delete from state
+    delete_workout(workout_id);
+
+    //3. Render cards
+    render_workouts_cards();
+
+    //4. Clear map point
+    //Reset map and re render based on saved on State
+    
 }
 
 /**

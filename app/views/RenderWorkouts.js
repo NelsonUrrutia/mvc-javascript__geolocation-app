@@ -60,7 +60,11 @@ class RenderWorkouts extends View{
 
     show_empty_message(){
         this.clear();
-        this._dom_empty_msg.classList.toggle('hidden');
+        this._dom_empty_msg.classList.remove('hidden');
+    }
+
+    hide_empty_message(){
+        this._dom_empty_msg.classList.add('hidden')
     }
 }
 

@@ -20,7 +20,8 @@ class MapView extends View{
         })
     }
 
-    mark_on_map(lat, lng, workout_type){        
+    mark_on_map(lat, lng, workout_type){      
+        debugger  
         L.marker([lat,lng])
         .addTo(this.#map)
         .bindPopup(
@@ -34,6 +35,8 @@ class MapView extends View{
         )
         .setPopupContent(`${workout_type}`)
         .openPopup();
+
+        debugger;
     }
 
     _render_map(lat, lon){        

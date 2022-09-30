@@ -4,7 +4,9 @@ import AddWorkout from "../views/AddWorkout.js";
 import MapView from "../views/MapView.js";
 import RenderWorkouts from "../views/RenderWorkouts.js";
 
-import { controller_delete_workout } from '../controllers/_workout_form';
+import { controller_delete_workout } from "./_workout_form.js";
+
+
 
 export const render_workouts_cards = function(){
         
@@ -51,8 +53,7 @@ export const click_workout_card_dispatcher = function(event){
     }
     
     // 2. Check if the delete button was clicked
-    if(element_click.closest('.delete_workout')){
-        debugger;
+    if(element_click.closest('.delete_workout')){        
         //1. Get id from workout card
         const workout_id = element_click.closest(".workout_card").dataset.workoutId;
 

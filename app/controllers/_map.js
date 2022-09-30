@@ -5,6 +5,7 @@ import { State } from "../models/State.js";
 import { reverse_geocoding, set_location_state } from "../models/_map.js";
 
 import { get_workouts } from "./_render_workout.js";
+import RenderWorkouts from "../views/RenderWorkouts.js";
 
 const clickEvent = function(event){
     //1. Get latitude & longitude from the event
@@ -14,10 +15,13 @@ const clickEvent = function(event){
     AddWorkout.show_workout_form();
 
     //3. Set coord in workout form
-    AddWorkout._fill_coords_input(lat, lng)
+    AddWorkout._fill_coords_input(lat, lng);
+
+    //4. Hide empty message
+    RenderWorkouts.hide_empty_message();
 }
 
-const mark_saved_workouts = function(){       
+const  mark_saved_workouts = function(){       
     const workouts = get_workouts();
     if(!workouts) return;
 
@@ -29,6 +33,7 @@ const mark_saved_workouts = function(){
 }
 
 export const mark_pin_on_map = function(lat, lng, workout_type){
+    //TODO:
     //1. Passing to a reverse geolocation
     // const reverse_geo_data = await reverse_geocoding(lat, lng);
 

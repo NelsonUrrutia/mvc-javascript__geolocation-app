@@ -35,8 +35,6 @@ class AddWorkout{
             //3. Reset values            
             document.querySelector('.form__input--cadence').value = '';   
             document.querySelector(".form__input--elevation").value = ""   ;
-
-            console.log('hello');
         })
     }
 
