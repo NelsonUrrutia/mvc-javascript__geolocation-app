@@ -62,6 +62,8 @@ export const click_workout_card_dispatcher = function(event){
         return
     }
     
+    //TODO: 
+    //Console error: _render_workout.js:66 Uncaught TypeError: Cannot read properties of null (reading 'dataset')at HTMLDivElement.click_workout_card_dispatcher
     //3.The workout card was clicked
     const latitude = element_click.closest('.workout_card').dataset.latitude;
     const longitude = element_click.closest('.workout_card').dataset.longitude;

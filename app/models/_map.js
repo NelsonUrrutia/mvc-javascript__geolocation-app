@@ -29,9 +29,9 @@ export const set_location_state = async function(){
     }
 }
 
-export const reverse_geocoding = async function(lat, lng){
-    const fetch_prom = await fetch(`https://geocodeapi.p.rapidapi.com/GetTimezone?latitude=${lat}&longitude=${lng}`
-                                    ,API_REVERSE_GEOCODE_OPTIONS);
-    const fetch_data = await fetch_prom.json();
-    return fetch_data;
-}
+// export const reverse_geocoding = async function(lat, lng){
+//     const fetch_prom = await fetch(`https://geocodeapi.p.rapidapi.com/GetTimezone?latitude=${lat}&longitude=${lng}`
+//                                     ,API_REVERSE_GEOCODE_OPTIONS);
+//     const fetch_data = await fetch_prom.json();
+//     return fetch_data;
+// }
