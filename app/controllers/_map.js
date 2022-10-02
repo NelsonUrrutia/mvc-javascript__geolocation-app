@@ -2,7 +2,7 @@ import MapView from "../views/MapView.js";
 import AddWorkout from "../views/AddWorkout.js";
 
 import { State } from "../models/State.js";
-import { reverse_geocoding, set_location_state } from "../models/_map.js";
+import { set_location_state } from "../models/_map.js";
 
 import { get_workouts } from "./_render_workout.js";
 import RenderWorkouts from "../views/RenderWorkouts.js";
@@ -21,7 +21,7 @@ const clickEvent = function(event){
     RenderWorkouts.hide_empty_message();
 }
 
-const  mark_saved_workouts = function(){       
+export const mark_saved_workouts = function(){       
     const workouts = get_workouts();
     if(!workouts) return;
 
@@ -41,6 +41,9 @@ export const mark_pin_on_map = function(lat, lng, workout_type){
     MapView.mark_on_map(lat, lng, workout_type);    
 }
 
+export const reset_map_layer = function(){
+    MapView._delete_layer();
+}
 
 
 const init_map = async function(){

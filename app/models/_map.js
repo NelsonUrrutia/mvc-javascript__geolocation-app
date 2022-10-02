@@ -1,5 +1,5 @@
 import { State } from "./State.js";
-import { EL_SALVADOR_COORD,API_REVERSE_GEOCODE_OPTIONS } from "../conf.js"
+import { EL_SALVADOR_COORD} from "../conf.js"
 
 /**
  * ### Get User Location

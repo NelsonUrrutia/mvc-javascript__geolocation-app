@@ -2,6 +2,7 @@ import  View from './View.js';
 
 class MapView extends View{
     #map;    
+    #map_layer;
     #map_zoom_level = 13;
     _parent_element = "map_container";
     _dom_parent_element = document.querySelector("#map_container")
@@ -21,7 +22,7 @@ class MapView extends View{
     }
 
     mark_on_map(lat, lng, workout_type){ 
-        L.marker([lat,lng])
+        const marker = L.marker([lat,lng])
         .addTo(this.#map)
         .bindPopup(
             L.popup({
@@ -34,8 +35,19 @@ class MapView extends View{
         )
         .setPopupContent(`${workout_type}`)
         .openPopup();
+        this.#map_layer.addLayer(marker)
     }
 
+    _delete_layer(){
+        /**
+         * TODO:
+         * Recorrer todos los markers
+         * identificar aquel que tenga los mismos lat y lon
+         * Obtener su id
+         * Usar ese id para quitar ese marker
+         */
+        this.#map_layer.clearLayers();
+    }
     _render_map(lat, lon){        
         //1. Clear container
         this.clear();
@@ -46,7 +58,10 @@ class MapView extends View{
         // 3. Create map tiles
         L.tileLayer('https://{s}.tile.openstreetmap.fr/hot/{z}/{x}/{y}.png',{
             attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
-        }).addTo(this.#map);     
+        }).addTo(this.#map);   
+        
+        //4. Create map layer
+        this.#map_layer = L.layerGroup().addTo(this.#map);
     }
 }
 
