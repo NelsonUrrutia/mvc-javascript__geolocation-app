@@ -58,7 +58,7 @@ class RenderWorkouts extends View{
         this._dom_parent_element.insertAdjacentHTML('afterbegin', workout_card);
     }
 
-    show_empty_message(){
+    show_empty_message(){        
         this.clear();
         this._dom_empty_msg.classList.remove('hidden');
     }

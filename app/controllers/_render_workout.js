@@ -17,7 +17,7 @@ export const render_workouts_cards = function(){
     const workouts = get_saved_workouts();
 
     //3. Check if its empty
-    if(!workouts) {
+    if(!workouts || workouts.length <= 0) {
         RenderWorkouts.show_empty_message();
         return
     }

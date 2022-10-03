@@ -39,6 +39,7 @@ class MapView extends View{
     }
 
     _delete_layer(){
+        
         /**
          * TODO:
          * Recorrer todos los markers

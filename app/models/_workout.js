@@ -88,6 +88,15 @@ export const delete_workout = function(id){
     persist_workouts()
 }
 
+export const clear_all_workouts = function(){
+
+    //1. Delete workouts from State
+    State.workouts  = [];
+
+    //2. Persist into localstorage
+    persist_workouts();
+}
+
 
 export const get_workout_by_id = id => State.workouts.filter(work => work.workout_id === id);
 
