@@ -8,22 +8,27 @@ import { controller_delete_workout } from "./_workout_form.js";
 
 
 
-export const render_workouts_cards = function(){
-        
-    //1. Render Spinner
-    RenderWorkouts.render_spinner();
+export const render_workouts_cards = function(workout_arr = []){
 
-    //2. Get data from local storage
+    //1. Clear content 
+    RenderWorkouts.clear();
+
+    //2. Check if passed param has items
+    if(workout_arr.length > 0){
+        workout_arr.forEach( el => RenderWorkouts.generateMarkup(el));
+        return;
+    }
+
+    //3. Get data from local storage
     const workouts = get_saved_workouts();
 
-    //3. Check if its empty
+    //4. Check if its empty
     if(!workouts || workouts.length <= 0) {
         RenderWorkouts.show_empty_message();
         return
     }
 
-    //4. Rendering workouts
-    RenderWorkouts.clear();
+    //5. Rendering workouts    
     workouts.forEach( el => RenderWorkouts.generateMarkup(el));
 }
 

@@ -97,6 +97,7 @@ export const clear_all_workouts = function(){
     persist_workouts();
 }
 
+export const filter_workouts_type = type => State.workouts.filter( el => el.workout_type === type);
 
 export const get_workout_by_id = id => State.workouts.filter(work => work.workout_id === id);
 

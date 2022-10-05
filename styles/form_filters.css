@@ -32,14 +32,15 @@
 
 /* Button */
 
-.sorting_buttons{
+.sorting_buttons{    
     display: flex;
     width: 35%;
     gap: 0.1rem;
 }
 
 
-#sort_menu button{
+#sort_menu button{    
+    position: relative;
     background-color: transparent;
     border: none;
     padding: 0.5rem  0.25rem;
@@ -47,6 +48,30 @@
     cursor: pointer;
     width: 25%;
 }
+
+#sort_menu button::after{    
+    content: attr(tile);
+    position: absolute;
+    top: -40%;
+    left: 50%;
+    transform: translate(-50%, -40%);
+    width: 12rem;
+    background-color: var(--grey_500_rgba);
+    display: block;    
+    color: var(--white_300);
+    border-radius: 5px;
+    padding: 0.2rem 0;
+    opacity: 0;
+    overflow: hidden;
+    transition: all 0.2s;
+}
+
+#sort_menu button:hover:after{
+    opacity: 1;
+    overflow: auto;
+    transition: all 0.2s;
+}
+
 
 #sort_menu button img{
     max-width: 80%;

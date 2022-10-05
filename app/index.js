@@ -11,13 +11,17 @@ init_sort_menu();
 /**
 TODO: 
 4. Ability to sort workouts by certain field (e.g distance) 
+    Workout props
+    Ascending
+    Descending
+    Reset All
+
 6. More realistic error and confirmation messages
 7. Ability to position the map to show all workouts
     → Use fitBounds https://leafletjs.com/reference.html#map-fitbounds
 8. Ability to draw lines and shapes instead of just points
 9. Make a destructuring function, pass name of properties an return values;
 10. Rename functions and variables 
-11. Add functionality to cancel button on form
 12. Mostrar al iniciar la app un mensaje con la informacion de la aplicacion
     -> inclyuendo gifs con explicaciones
     -> Mostrar descripcion de la app

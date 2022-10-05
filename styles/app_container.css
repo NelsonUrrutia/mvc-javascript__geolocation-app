@@ -6,6 +6,10 @@
     overflow: hidden; 
     margin: 2rem auto 0 auto;
     background-color: var(--white_300);    
+
+    box-shadow: 5px 4px 12px 1px rgba(82,82,82,0.59);
+    -webkit-box-shadow: 5px 4px 12px 1px rgba(82,82,82,0.59);
+    -moz-box-shadow: 5px 4px 12px 1px rgba(82,82,82,0.59);
 }
 
 
@@ -13,7 +17,7 @@
 #form_container{
     position: relative;
     width: 30%;
-    padding: 2rem;
+    padding: 2.5rem;
 }
 
 #map_container{
