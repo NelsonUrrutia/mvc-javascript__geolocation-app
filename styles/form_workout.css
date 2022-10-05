@@ -3,7 +3,7 @@
     border-radius: 5px;
 
     display: grid;
-    grid-template-columns: repeat(3, 33.33%);
+    grid-template-columns: repeat(3,minmax(30%, 1fr));
     grid-template-rows: repeat(2, 1fr);
     align-items: flex-end;
     gap: 0.8rem;

@@ -9,6 +9,7 @@ class AddWorkout{
     #input_duration = this.#form.querySelector(".form__input--duration");
     #input_cadence = this.#form.querySelector(".form__input--cadence");
     #input_elevation = this.#form.querySelector(".form__input--elevation");
+    #cancel_workout_btn = this.#form.querySelector("#cancel");
 
     /**
      * 
@@ -48,6 +49,13 @@ class AddWorkout{
             e.preventDefault();            
             const form_data = [...new FormData(this)]
             handler(form_data)
+        })
+    }
+
+    _addHandlerCancel(handler){
+        this.#cancel_workout_btn.addEventListener('click', function(e){
+            e.preventDefault;
+            handler();
         })
     }
 

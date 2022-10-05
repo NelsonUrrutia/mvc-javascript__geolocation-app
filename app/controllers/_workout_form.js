@@ -2,6 +2,8 @@ import AddWorkout from "../views/AddWorkout.js";
 import { edit_workout, save_workout, delete_workout } from "../models/_workout.js";
 import { mark_pin_on_map, reset_map_layer, mark_saved_workouts } from "./_map.js";
 import { render_workouts_cards } from "./_render_workout.js";
+import { State } from "../models/State.js";
+import RenderWorkouts from "../views/RenderWorkouts.js";
 
 const submit_event = function(data){    
     
@@ -42,6 +44,18 @@ export const controller_delete_workout = function(workout_id){
     mark_saved_workouts()
 }
 
+const cancel_workout = function(){    
+    //1. Clear form inputs
+    AddWorkout._clear_workout_inputs();
+    
+    //2. Hide form
+    AddWorkout.hide_workout_form();
+
+    //3. Show empty message
+    if(State.workouts.length <= 0) RenderWorkouts.show_empty_message();
+
+}
+
 /**
  * ### Workout Controller Initializer
  * Publisher/Subscriber Pattern
@@ -49,6 +63,7 @@ export const controller_delete_workout = function(workout_id){
  */
 export const init_workout_form = function(){
 
-    AddWorkout.addHandlerChangeWorkout()
-    AddWorkout._addHandlerSubmit(submit_event)
+    AddWorkout.addHandlerChangeWorkout();
+    AddWorkout._addHandlerSubmit(submit_event);
+    AddWorkout._addHandlerCancel(cancel_workout)
 }
