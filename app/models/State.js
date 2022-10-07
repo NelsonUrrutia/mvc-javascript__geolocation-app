@@ -3,5 +3,6 @@ export const State = {
         latitude:0,
         longitude:0
     },
-    workouts:[]
+    workouts:[],
+    filtered_workouts:[]
 }

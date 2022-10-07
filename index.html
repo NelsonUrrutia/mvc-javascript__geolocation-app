@@ -27,17 +27,13 @@
                     </select>
                     <select name="workout-prop" id="workouts_prop">
                         <option value="" disabled selected>Workout Props</option>
-                        <option value="time">Time</option>
-                        <option value="distance">Distance</option>
+                        <option value="time_ascending">Time (HIGHEST FIRST) </option>
+                        <option value="time_descending">Time (LOWEST FIRST)</option>
+                        <option value="distance_ascending">Distance (HIGHEST FIRST)</option>
+                        <option value="distance_descending">Distance (LOWEST FIRST)</option>
                     </select>
                 </div>               
-                <div class="sorting_buttons">
-                    <button id="sort_ascending" tile="Sort Ascending">
-                        <img src="images/arrow-up-circle.svg" alt="Sort Ascending">
-                    </button>
-                    <button id="sort_descending" tile="Sort Descending">
-                        <img src="images/arrow-down-circle.svg" alt="Sort Descending">
-                    </button>
+                <div class="sorting_buttons">                    
                     <button id="reset_filters" tile="Reset Filters">
                         <img src="images/refresh-cw.svg" alt="Reset Filters">    
                     </button>

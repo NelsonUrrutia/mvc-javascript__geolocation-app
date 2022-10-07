@@ -2,6 +2,7 @@ class SortMenu{
 
     #delete_btn = document.querySelector("#delete_all_workouts");
     #filter_type = document.querySelector("#workouts_type_filter");
+    #filter_prop = document.querySelector("#workouts_prop");
 
     addHandlerDeleteAllWorkouts(handler){
         this.#delete_btn.addEventListener("click", function(e){
@@ -18,6 +19,10 @@ class SortMenu{
 
     addHandlerFilterByType(handler){
         this.#filter_type.addEventListener("change", handler);
+    }
+
+    addHanderFilterByProps(handler){
+        this.#filter_prop.addEventListener("change", handler)
     }
 }
 

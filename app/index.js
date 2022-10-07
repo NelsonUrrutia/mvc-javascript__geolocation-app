@@ -31,5 +31,6 @@ TODO:
     -> Link a github
     -> Hacer mensaje en linkedin
 13. Show a better alert to confirmation delete workouts
+14. Show active filters below filter controller
 //https://stackoverflow.com/questions/66330228/how-to-destructure-an-array-of-objects-into-multiple-arrays-of-its-keys
  */

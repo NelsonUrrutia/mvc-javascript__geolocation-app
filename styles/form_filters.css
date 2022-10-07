@@ -18,24 +18,32 @@
 
 .sorting_dropdowns{
     display: flex;
-    width: 60%;
+    width: 70%;
     gap: 1rem;
 }
 
-#sort_menu select{
-    width: 50%;
+#sort_menu select{    
     border-radius: 5px;
     border: none;
     color: var(--grey_600);
     padding: 0.5rem;
 }
 
+#workouts_type_filter{
+    width: 40%;
+}
+
+#workouts_prop{
+    width: 60%;
+}
+
 /* Button */
 
 .sorting_buttons{    
     display: flex;
-    width: 35%;
-    gap: 0.1rem;
+    justify-content: center;
+    width: 20%;
+    gap: 0.5rem;    
 }
 
 
@@ -46,24 +54,32 @@
     padding: 0.5rem  0.25rem;
     border-radius: 5px;
     cursor: pointer;
-    width: 25%;
+    width: 4rem;
 }
 
 #sort_menu button::after{    
     content: attr(tile);
     position: absolute;
-    top: -40%;
+    top: -50%;
     left: 50%;
     transform: translate(-50%, -40%);
-    width: 12rem;
-    background-color: var(--grey_500_rgba);
+    width: 12rem;    
     display: block;    
-    color: var(--white_300);
     border-radius: 5px;
     padding: 0.2rem 0;
     opacity: 0;
     overflow: hidden;
     transition: all 0.2s;
+    font-size: 1.4rem;
+    color: var(--white_100);
+}
+
+#reset_filters::after{
+    background-color: var(--grey_600);
+}
+
+#delete_all_workouts::after{
+    background-color: var(--red);
 }
 
 #sort_menu button:hover:after{

@@ -97,8 +97,6 @@ export const clear_all_workouts = function(){
     persist_workouts();
 }
 
-export const filter_workouts_type = type => State.workouts.filter( el => el.workout_type === type);
-
 export const get_workout_by_id = id => State.workouts.filter(work => work.workout_id === id);
 
 export const get_saved_workouts = function(){
@@ -106,6 +104,28 @@ export const get_saved_workouts = function(){
     if(!workouts) return;
     return workouts;    
 }
+
+export const filter_workouts_type = function(type){    
+    //1. Get filtered array of workouts
+    const workouts_arr = State.workouts.filter( el => el.workout_type === type)
+    
+    //2. Set filtered workouts on State
+    State.filtered_workouts = workouts_arr;
+};
+
+export const filter_workouts_prop = function(prop){    
+    //1. Check if exist filtered workouts
+    // if(State.filtered_workouts.length > 0){
+    // }
+
+    //2. Filter State workouts 
+    // State.workouts
+
+
+}
+
+
+
 
 export const init_state_workouts = function(){
     
