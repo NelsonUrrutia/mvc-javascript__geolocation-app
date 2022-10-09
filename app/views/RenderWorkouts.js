@@ -9,8 +9,7 @@ class RenderWorkouts extends View{
         this._dom_parent_element.addEventListener('click',handler)
     }
 
-    generateMarkup(data){
-
+    generateMarkup(data, filtered = false){
         let workout_info = "";
 
         if(data.workout_type === 'running'){
@@ -55,7 +54,8 @@ class RenderWorkouts extends View{
             </div>
         `;
 
-        this._dom_parent_element.insertAdjacentHTML('afterbegin', workout_card);
+        if(filtered)  this._dom_parent_element.insertAdjacentHTML('beforeend', workout_card);
+        if(!filtered) this._dom_parent_element.insertAdjacentHTML('afterbegin', workout_card);       
     }
 
     show_empty_message(){        

@@ -7,15 +7,13 @@ import RenderWorkouts from "../views/RenderWorkouts.js";
 import { controller_delete_workout } from "./_workout_form.js";
 
 
-
-export const render_workouts_cards = function(workout_arr = []){
-
+export const render_workouts_cards = function(workout_arr = [], filtered = false){
     //1. Clear content 
     RenderWorkouts.clear();
 
     //2. Check if passed param has items
     if(workout_arr.length > 0){
-        workout_arr.forEach( el => RenderWorkouts.generateMarkup(el));
+        workout_arr.forEach( el => RenderWorkouts.generateMarkup(el, filtered));
         return;
     }
 

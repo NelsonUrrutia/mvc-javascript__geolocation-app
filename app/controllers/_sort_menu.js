@@ -1,12 +1,11 @@
 import SortMenu from "../views/SortMenu.js";
 import RenderWorkouts from "../views/RenderWorkouts.js";
 import MapView from "../views/MapView.js";
-import { clear_all_workouts, filter_workouts_prop, filter_workouts_type } from "../models/_workout.js";
+import { clear_all_workouts, clear_filtered_array, filter_workouts_prop, filter_workouts_type } from "../models/_workout.js";
 import { render_workouts_cards } from "./_render_workout.js";
 import { State } from "../models/State.js";
 
 const delete_all_workouts = function(){
-    
     //1. Clear workouts from State & LocalStorage
     clear_all_workouts();
 
@@ -18,14 +17,17 @@ const delete_all_workouts = function(){
 
 }
 
-const sort_by_type = function(event){    
+const sort_by_type = function(event){  
     //1. Get workout type
     const handle = event.target.value;
 
     //2. Build filtered array
     filter_workouts_type(handle);
 
-    //3. Render State new array
+    //3.Reset Prop value
+    SortMenu.reset_filter_prop()
+
+    //4. Render State new array
     render_workouts_cards(State.filtered_workouts)
 }
 
@@ -33,15 +35,27 @@ const sort_by_props = function(event){
     //1. Get prop handle
     const handle = event.target.value;
 
-    //2. Build/Edit array
+    //2. Build array
     filter_workouts_prop(handle);
 
     //3. Render State filtered workouts
-    render_workouts_cards(State.filtered_workouts);
+    render_workouts_cards(State.filtered_workouts, true);
+}
+
+const reset_filters = function(){
+    //1. Clear State filtered array
+    clear_filtered_array();
+
+    //2. Render workouts
+    render_workouts_cards();
+
+    //3. Clear value of dropdowns
+    SortMenu.reset_filter_controls();
 }
 
 export const init_sort_menu = function(){
     SortMenu.addHandlerDeleteAllWorkouts(delete_all_workouts);
     SortMenu.addHandlerFilterByType(sort_by_type);
     SortMenu.addHanderFilterByProps(sort_by_props);
+    SortMenu.addHandlerResetFilter(reset_filters);
 }

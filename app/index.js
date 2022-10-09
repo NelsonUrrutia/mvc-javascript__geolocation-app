@@ -9,13 +9,7 @@ init_render_workouts();
 init_sort_menu();
 
 /**
-TODO: 
-4. Ability to sort workouts by certain field (e.g distance) 
-    Workout props
-    Ascending
-    Descending
-    Reset All
-
+TODO:
 6. More realistic error and confirmation messages
 7. Ability to position the map to show all workouts
     → Use fitBounds https://leafletjs.com/reference.html#map-fitbounds

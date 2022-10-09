@@ -104,7 +104,7 @@
 
 /* Common Styles Media Query */
 
-@media(max-width: 1440px){ 
+@media(max-width: 768px){ 
     .sorting_dropdowns{
         width: 50%;
         flex-direction: column;

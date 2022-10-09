@@ -3,6 +3,7 @@ class SortMenu{
     #delete_btn = document.querySelector("#delete_all_workouts");
     #filter_type = document.querySelector("#workouts_type_filter");
     #filter_prop = document.querySelector("#workouts_prop");
+    #reset_filters = document.querySelector("#reset_filters");
 
     addHandlerDeleteAllWorkouts(handler){
         this.#delete_btn.addEventListener("click", function(e){
@@ -23,6 +24,19 @@ class SortMenu{
 
     addHanderFilterByProps(handler){
         this.#filter_prop.addEventListener("change", handler)
+    }
+
+    addHandlerResetFilter(handler){
+        this.#reset_filters.addEventListener("click", handler);
+    }
+
+    reset_filter_controls(){
+        this.#filter_prop.value = "";
+        this.#filter_type.value = "";
+    }
+
+    reset_filter_prop(){
+        this.#filter_prop.value = "";
     }
 }
 

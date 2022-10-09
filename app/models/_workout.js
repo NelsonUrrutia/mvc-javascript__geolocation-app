@@ -106,26 +106,32 @@ export const get_saved_workouts = function(){
 }
 
 export const filter_workouts_type = function(type){    
-    //1. Get filtered array of workouts
-    const workouts_arr = State.workouts.filter( el => el.workout_type === type)
-    
-    //2. Set filtered workouts on State
-    State.filtered_workouts = workouts_arr;
+    //1. Create copy array
+    let copy_arr = State.workouts;
+
+    //2. Filter array
+    State.filtered_workouts = copy_arr.filter(el => el.workout_type === type);
 };
 
-export const filter_workouts_prop = function(prop){    
-    //1. Check if exist filtered workouts
-    // if(State.filtered_workouts.length > 0){
-    // }
+export const filter_workouts_prop = function(prop){        
+    let copy_workouts = [];
 
-    //2. Filter State workouts 
-    // State.workouts
+    //1. Get property & sort param
+    const [type, sort] = prop.split("_");
 
+    //2. Create copy of array
+    //Check if exist filtered workouts
+    State.filtered_workouts.length > 0 ? copy_workouts = State.filtered_workouts : copy_workouts = State.workouts;
 
+    //3. Sort  copy array
+    if( sort === "ascending") copy_workouts.sort((a,b) => a[type] - b[type]);
+    if( sort === "descending") copy_workouts.sort((a,b) => b[type] - a[type]);
+
+    //4. Set sorted array to State filtered
+    State.filtered_workouts = copy_workouts;
 }
 
-
-
+export const clear_filtered_array = () => { State.filtered_workouts = []};
 
 export const init_state_workouts = function(){
     
