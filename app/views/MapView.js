@@ -3,7 +3,7 @@ import  View from './View.js';
 class MapView extends View{
     #map;    
     #map_layer;
-    #map_zoom_level = 13;
+    #map_zoom_level = 14;
     _parent_element = "map_container";
     _dom_parent_element = document.querySelector("#map_container")
 
@@ -16,7 +16,7 @@ class MapView extends View{
         this.#map.setView({lat: latitude, lon: longitude}, this.#map_zoom_level, {
             animate:true,
             pan:{
-                duration:1
+                duration:0.5
             }
         })
     }
@@ -38,17 +38,20 @@ class MapView extends View{
         this.#map_layer.addLayer(marker)
     }
 
+    _show_all_markers(){
+        let markers = [];
+        Object.entries(this.#map._layers).forEach(layer =>  {
+            if(layer[1]._latlng !== "undefined") markers.push(layer[1]._latlng);
+            return
+        });
+        const bounds  = L.latLngBounds(markers);
+        this.#map.fitBounds(bounds)
+    }
+
     _delete_layer(){
-        
-        /**
-         * TODO:
-         * Recorrer todos los markers
-         * identificar aquel que tenga los mismos lat y lon
-         * Obtener su id
-         * Usar ese id para quitar ese marker
-         */
         this.#map_layer.clearLayers();
     }
+
     _render_map(lat, lon){        
         //1. Clear container
         this.clear();

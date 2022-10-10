@@ -4,6 +4,7 @@ class SortMenu{
     #filter_type = document.querySelector("#workouts_type_filter");
     #filter_prop = document.querySelector("#workouts_prop");
     #reset_filters = document.querySelector("#reset_filters");
+    #show_all_workouts = document.querySelector("#map_view_all");
 
     addHandlerDeleteAllWorkouts(handler){
         this.#delete_btn.addEventListener("click", function(e){
@@ -28,6 +29,10 @@ class SortMenu{
 
     addHandlerResetFilter(handler){
         this.#reset_filters.addEventListener("click", handler);
+    }
+
+    addHandlerShowAllWorkouts(handler){
+        this.#show_all_workouts.addEventListener("click", handler);
     }
 
     reset_filter_controls(){

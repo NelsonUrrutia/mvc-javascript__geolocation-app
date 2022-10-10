@@ -45,6 +45,8 @@ export const reset_map_layer = function(){
     MapView._delete_layer();
 }
 
+export const show_all_markers = () => MapView._show_all_markers();
+
 
 const init_map = async function(){
 

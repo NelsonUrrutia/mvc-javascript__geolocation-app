@@ -16,13 +16,13 @@
 
 #form_container{
     position: relative;
-    width: 30%;
+    width: 35%;
     padding: 2.5rem;
 }
 
 #map_container{
     position: relative;
-    width: 70%;
+    width: 65%;
 }
 
 /* Common Styles Media Query */

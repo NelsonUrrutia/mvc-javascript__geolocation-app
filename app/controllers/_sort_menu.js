@@ -4,6 +4,7 @@ import MapView from "../views/MapView.js";
 import { clear_all_workouts, clear_filtered_array, filter_workouts_prop, filter_workouts_type } from "../models/_workout.js";
 import { render_workouts_cards } from "./_render_workout.js";
 import { State } from "../models/State.js";
+import { show_all_markers } from "./_map.js";
 
 const delete_all_workouts = function(){
     //1. Clear workouts from State & LocalStorage
@@ -53,9 +54,12 @@ const reset_filters = function(){
     SortMenu.reset_filter_controls();
 }
 
+const show_all_workouts = () => show_all_markers();
+
 export const init_sort_menu = function(){
     SortMenu.addHandlerDeleteAllWorkouts(delete_all_workouts);
     SortMenu.addHandlerFilterByType(sort_by_type);
     SortMenu.addHanderFilterByProps(sort_by_props);
     SortMenu.addHandlerResetFilter(reset_filters);
+    SortMenu.addHandlerShowAllWorkouts(show_all_workouts);
 }

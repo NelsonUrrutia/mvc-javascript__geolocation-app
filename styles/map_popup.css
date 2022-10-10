@@ -9,10 +9,11 @@
 }
 
 .leaflet-popup-content{
-    font-size: 1.5rem !important;
+    font-size: 1.3rem !important;
     letter-spacing: 0.05rem;    
     font-family: var(--secondary_font);
     text-transform: capitalize;
+    margin: 0.3rem 1.25rem 0.3rem 0.6rem !important;
 }
 
 .leaflet-popup-close-button span{
