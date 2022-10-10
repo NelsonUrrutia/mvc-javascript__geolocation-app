@@ -47,7 +47,7 @@
 }
 
 .workout_card[workout-type="running"]::after{
-    background-color: var(--red)
+    background-color: var(--green)
 }
 
 .workout_card[workout-type="cycling"]::after{

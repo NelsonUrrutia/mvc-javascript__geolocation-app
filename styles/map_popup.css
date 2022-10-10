@@ -29,7 +29,7 @@
     width: 5px;
     height: 100%;
     border-radius: 5px 0px 0px 5px;
-    background-color: var(--red)
+    background-color: var(--green)
 }
 
 .cycling-popup::after{

@@ -40,7 +40,7 @@
                     <button id="map_view_all" tile="Show all workouts in the map ">
                         <img src="images/eye.svg" alt="Binoculars ">
                     </button>
-                    <button id="delete_all_workouts" tile="Delete all workouts">
+                    <button id="delete_all_workouts" tile="Delete workouts">
                         <img src="images/trash.svg" alt="Delete all workouts">
                     </button>
                 </div>
@@ -85,44 +85,7 @@
             </form>
         
 
-            <div id="workouts_list">
-                <!-- <div class="workout_card" workout-type="running">
-                    <h3>Running</h3>
-                    <p>September 15, Santa Ana</p>                  
-                    <ul class="workout_info">
-                        <li>🏃🏻‍♂️ 5 <span>KM</span></li>
-                        <li>⏱️ 50 <span>MIN</span></li>
-                        <li>👟 10 <span>cadence</span></li>
-                    </ul> 
-                    <div class="workout_card__actions">
-                        <button class="edit_workout">
-                            <img src="images/edit.svg" alt="Edit Workout">
-                        </button>
-                        <button class="delete_workout">
-                            <img src="images/trash.svg" alt="Delete Workout">
-                        </button>
-                    </div>           
-                </div>
-
-                <div class="workout_card" workout-type="cycling">
-                    <h3>Cycling</h3>
-                    <p>September 25, Santa Tecla</p>
-                    <ul class="workout_info">
-                        <li>🚲 15 <span>KM</span></li>
-                        <li>⏱️ 150 <span>MIN</span></li>
-                        <li>⚡  50 <span>km/h</span></li>
-                        <li>🗻 5 <span>M</span></li>
-                    </ul>
-                    <div class="workout_card__actions">
-                        <button class="edit_workout">
-                            <img src="images/edit.svg" alt="Edit Workout">
-                        </button>
-                        <button class="delete_workout">
-                            <img src="images/trash.svg" alt="Delete Workout">
-                        </button>
-                    </div> 
-                </div> -->
-            </div>
+            <div id="workouts_list"></div>
 
             <div id="empty_message" class="hidden">
                 <h2>NO WORKOUTS SAVED</h2>
@@ -135,5 +98,14 @@
 
     </section>
     
+    <section id="global__window" class="hidden">
+        <div id="internal_window">
+            <h3>Are you shure to DELETE this workout?</h3>
+            <div id="internal_window__buttons">
+                <button id="delete"> DELETE </button>
+                <button id="cancel_delete">CANCEL</button>
+            </div>
+        </div>
+    </section>
 </body>
 </html>

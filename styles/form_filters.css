@@ -34,7 +34,7 @@
 
 .sorting_buttons{    
     display: flex;
-    justify-content: center;
+    justify-content: right;
     width: 35%;
     gap: 0.5rem;    
 }
@@ -47,7 +47,7 @@
     padding: 0.5rem  0.25rem;
     border-radius: 5px;
     cursor: pointer;
-    width: 30%;
+    width: 20%;
 }
 
 #sort_menu button::after{    
@@ -93,22 +93,4 @@
 
 #sort_menu button:hover img{
     opacity: 0.8;
-}
-
-/* Common Styles Media Query */
-
-@media(max-width: 768px){ 
-    .sorting_dropdowns{
-        width: 50%;
-        flex-direction: column;
-    }
-
-    #sort_menu select{
-        width: 100%;
-    }
-
-    .sorting_buttons{
-        width: 50%;    
-        align-items: center;          
-    }
 }
