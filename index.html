@@ -37,7 +37,7 @@
                     <button id="reset_filters" tile="Reset Filters">
                         <img src="images/refresh-cw.svg" alt="Reset Filters">    
                     </button>
-                    <button id="map_view_all" tile="Show all workouts in the map ">
+                    <button id="map_view_all" tile="View all in map ">
                         <img src="images/eye.svg" alt="Binoculars ">
                     </button>
                     <button id="delete_all_workouts" tile="Delete workouts">
@@ -100,12 +100,16 @@
     
     <section id="global__window" class="hidden">
         <div id="internal_window">
-            <h3>Are you shure to DELETE this workout?</h3>
+            <h3 class="custom_text"></h3>
             <div id="internal_window__buttons">
                 <button id="delete"> DELETE </button>
                 <button id="cancel_delete">CANCEL</button>
             </div>
         </div>
     </section>
+    <div id="toast" class="hidden">
+        <h3 class="custom_text"></h3>
+    </div>
+
 </body>
 </html>
