@@ -4,7 +4,7 @@ class RenderWorkouts extends View{
 
     _dom_parent_element = document.querySelector("#workouts_list");
     _dom_empty_msg = document.querySelector("#empty_message");
-    modal_title = "Are you shure to delete this workout?";
+    modal_title = "Are you sure to delete this workout?";
     modal_copy = "This action is irreversible";
 
     addHandlerWorkoutCard(handler){

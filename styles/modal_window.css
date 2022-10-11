@@ -34,6 +34,10 @@
     font-size: 1.8rem;    
 }
 
+#internal_window p{
+    font-size: 1.5rem;
+}
+
 #internal_window__buttons{
     display: flex;
     justify-content: space-between;
@@ -65,7 +69,12 @@ button#cancel_delete{
     background-color: var(--grey_500);
 }
 
-/* TOAST */
+/* 
+------------
+    TOAST 
+-------------
+*/
+
 #toast{
     position: fixed;    
     opacity: 0;
@@ -101,12 +110,12 @@ button#cancel_delete{
 }
 
 /*Common State classes */
-#internal_window.delete,
+#global__window.delete #internal_window,
 #toast.error{
     border-left-color: var(--red);
 }
 
-#internal_window.edit{
+#global__window.edit #internal_window{
     border-left-color: var(--yellow);
 }
 

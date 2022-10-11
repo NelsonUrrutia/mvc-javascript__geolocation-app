@@ -6,7 +6,7 @@ class SortMenu{
     #reset_filters = document.querySelector("#reset_filters");
     #show_all_workouts = document.querySelector("#map_view_all");
 
-    modal_title = "Are you shure to delete ALL workout?";
+    modal_title = "Are you sure to delete ALL workout?";
     modal_copy = "This action is irreversible";
 
     addHandlerDeleteAllWorkouts(handler){

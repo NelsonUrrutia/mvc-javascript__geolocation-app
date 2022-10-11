@@ -17,8 +17,15 @@ class ModalWindow{
         this.#modal.classList.add(type);
         this.#modal.querySelector("h3").innerHTML = title;
         if( copy !== "") this.#modal.querySelector("p").innerHTML = copy;
-
         this.show_modal();
+    }
+
+    modal_delete_workout(handle){
+        this.delete_button.addEventListener("click", handle)
+    }
+
+    modal_cancel_delete(handle){
+        this.cancel_button.addEventListener("click", handle)
     }
 
     show_modal(){
@@ -35,13 +42,13 @@ export default new ModalWindow();
 
 /**
  * Funcionalidades
- * 1. Recibir texto para mostrar
+ * 1
  * 2. Recibir el tipo de modal 
- *      →Delete: mostrar franja roja
+ *      
  *      →Edit: mostrar franja naranja
  *      →Success: mostrar "toast" en parte inferior derecha *      
  *      Mostrar iconos: error, success
- * 3. Devolver una respuesta (true/false) cuando el modal tenga controles
+ * 
  * 4. Utilizar promesas en el controlador para esperar el click de los botones
  * 5. Utilizar una clase para el markup y los eventos click 
  * 
