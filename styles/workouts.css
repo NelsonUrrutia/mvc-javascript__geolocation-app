@@ -47,11 +47,11 @@
 }
 
 .workout_card[workout-type="running"]::after{
-    background-color: var(--green)
+    background-color: var(--blue)
 }
 
 .workout_card[workout-type="cycling"]::after{
-    background-color: var(--blue);
+    background-color: var(--purple);
 }
 
 .workout_card :is(p, li){
