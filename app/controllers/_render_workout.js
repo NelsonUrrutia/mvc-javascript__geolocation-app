@@ -2,7 +2,9 @@ import { State } from "../models/State.js";
 import { get_saved_workouts, init_state_workouts, get_workout_by_id } from "../models/_workout.js";
 import AddWorkout from "../views/AddWorkout.js";
 import MapView from "../views/MapView.js";
+import ModalWindow from "../views/ModalWindow.js";
 import RenderWorkouts from "../views/RenderWorkouts.js";
+import { modal_window } from "./_modal_windows.js";
 
 import { controller_delete_workout } from "./_workout_form.js";
 
@@ -42,7 +44,7 @@ const edit_workout = function(workout_id){
     AddWorkout.show_workout_form();
 }
 
-export const click_workout_card_dispatcher = function(event){
+export const click_workout_card_dispatcher = async function(event){
     const element_click = event.target;
     
     // 1. Check if the edit button was clicked
@@ -59,10 +61,14 @@ export const click_workout_card_dispatcher = function(event){
     if(element_click.closest('.delete_workout')){        
         //1. Get id from workout card
         const workout_id = element_click.closest(".workout_card").dataset.workoutId;
-
-        //2. Passing id to delete function
-        controller_delete_workout(workout_id);
-        return
+        
+        //2.Confirm delete
+        const delete_workout = await modal_window(RenderWorkouts.modal_title, RenderWorkouts.modal_copy, ModalWindow.delete_class)
+        
+        //3. Passing id to delete function
+        if( delete_workout) controller_delete_workout(workout_id);
+        
+        return;
     }
     
     //TODO: 

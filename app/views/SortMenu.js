@@ -6,6 +6,9 @@ class SortMenu{
     #reset_filters = document.querySelector("#reset_filters");
     #show_all_workouts = document.querySelector("#map_view_all");
 
+    modal_title = "Are you shure to delete ALL workout?";
+    modal_copy = "This action is irreversible";
+
     addHandlerDeleteAllWorkouts(handler){
         this.#delete_btn.addEventListener("click", function(e){
             
@@ -14,8 +17,7 @@ class SortMenu{
             if(!btn) return;
         
             //2.Confirm to the user
-            const result = confirm("Are you shure to DELETE ALL workouts?");
-            if(result) handler();
+            handler();
         });        
     }
 

@@ -5,17 +5,24 @@ import { clear_all_workouts, clear_filtered_array, filter_workouts_prop, filter_
 import { render_workouts_cards } from "./_render_workout.js";
 import { State } from "../models/State.js";
 import { show_all_markers } from "./_map.js";
+import { modal_window } from "./_modal_windows.js";
+import ModalWindow from "../views/ModalWindow.js";
 
-const delete_all_workouts = function(){
-    //1. Clear workouts from State & LocalStorage
-    clear_all_workouts();
+const delete_all_workouts = async function(){
+    //1. Show Modal to confirm
+    const delete_workouts = await modal_window(SortMenu.modal_title, SortMenu.modal_copy, ModalWindow.delete_class);
 
-    //2. Show empty message
-    RenderWorkouts.show_empty_message();
-
-    //3. Clear map
-    MapView._delete_layer();
-
+    if(delete_workouts){
+        //1. Clear workouts from State & LocalStorage
+        clear_all_workouts();
+    
+        //2. Show empty message
+        RenderWorkouts.show_empty_message();
+    
+        //3. Clear map
+        MapView._delete_layer();
+    }
+    return;
 }
 
 const sort_by_type = function(event){  
