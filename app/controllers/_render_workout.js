@@ -1,8 +1,8 @@
+import { CustomModalSettings } from "../helpers.js";
 import { State } from "../models/State.js";
 import { get_saved_workouts, init_state_workouts, get_workout_by_id } from "../models/_workout.js";
 import AddWorkout from "../views/AddWorkout.js";
 import MapView from "../views/MapView.js";
-import ModalWindow from "../views/ModalWindow.js";
 import RenderWorkouts from "../views/RenderWorkouts.js";
 import { modal_window } from "./_modal_windows.js";
 
@@ -52,8 +52,11 @@ export const click_workout_card_dispatcher = async function(event){
         //1. Get id from workout card
         const workout_id = element_click.closest(".workout_card").dataset.workoutId;
         
-        //2. Passing id to edit function
-        edit_workout(workout_id);        
+        //2. Confirm edit
+        const edit_workout_flag = await modal_window(CustomModalSettings.messages.workouts.edited_workout_title,"",CustomModalSettings.classes.edit)
+
+        //3. Passing id to edit function
+        if(edit_workout_flag)   edit_workout(workout_id);       
         return
     }
     
@@ -63,7 +66,9 @@ export const click_workout_card_dispatcher = async function(event){
         const workout_id = element_click.closest(".workout_card").dataset.workoutId;
         
         //2.Confirm delete
-        const delete_workout = await modal_window(RenderWorkouts.modal_title, RenderWorkouts.modal_copy, ModalWindow.delete_class)
+        const delete_workout = await modal_window(CustomModalSettings.messages.workouts.delete_workout_title,
+                                                CustomModalSettings.messages.workouts.delete_workout_copy,
+                                                CustomModalSettings.classes.delete)
         
         //3. Passing id to delete function
         if( delete_workout) controller_delete_workout(workout_id);

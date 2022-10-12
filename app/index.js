@@ -10,7 +10,7 @@ init_sort_menu();
 
 /**
 TODO:
-6. More realistic error and confirmation messages
+6. More realistic error messages
 8. Ability to draw lines and shapes instead of just points
 9. Make a destructuring function, pass name of properties an return values;
 10. Rename functions and variables 
@@ -22,8 +22,8 @@ TODO:
     -> Poner un icono de informacion en la esquina para desplegar la info
     -> Link a github
     -> Hacer mensaje en linkedin
-13. Show a better alert to confirmation delete workouts
 14. Show active filters below filter controller
 15. Reverse Geocode to get the name of the place on the description
+16. Trycatch models , to show in a toast the error
 //https://stackoverflow.com/questions/66330228/how-to-destructure-an-array-of-objects-into-multiple-arrays-of-its-keys
  */

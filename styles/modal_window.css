@@ -61,12 +61,28 @@
     opacity: 0.8;
 }
 
+button#delete, button#edit{
+    display: none;
+}
+
+#global__window.delete button#delete{
+    display: block;
+}
+
+#global__window.edit button#edit{
+    display: block;
+}
+
 button#delete{
     background-color: var(--red);
 }
 
 button#cancel_delete{
     background-color: var(--grey_500);
+}
+
+button#edit{
+    background-color: var(--yellow);
 }
 
 /* 
@@ -78,9 +94,9 @@ button#cancel_delete{
 #toast{
     position: fixed;    
     opacity: 0;
-    top: 2%;
+    bottom: 4%;
     right: -100%;
-    transition: ease-out 0.8s;
+    transition: ease-out 2s;
 
     z-index: 1000;
     width: 30rem;
@@ -97,7 +113,7 @@ button#cancel_delete{
 
 #toast.show_toast{
     opacity: 1;
-    right: 1%;
+    right: 2%;
     transition: ease-in 0.8s;
 }
 
@@ -110,6 +126,7 @@ button#cancel_delete{
 }
 
 /*Common State classes */
+
 #global__window.delete #internal_window,
 #toast.error{
     border-left-color: var(--red);

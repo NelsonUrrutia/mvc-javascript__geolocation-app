@@ -5,12 +5,14 @@ import { clear_all_workouts, clear_filtered_array, filter_workouts_prop, filter_
 import { render_workouts_cards } from "./_render_workout.js";
 import { State } from "../models/State.js";
 import { show_all_markers } from "./_map.js";
-import { modal_window } from "./_modal_windows.js";
-import ModalWindow from "../views/ModalWindow.js";
+import { modal_window, toast_window } from "./_modal_windows.js";
+import { CustomModalSettings } from "../helpers.js";
 
 const delete_all_workouts = async function(){
     //1. Show Modal to confirm
-    const delete_workouts = await modal_window(SortMenu.modal_title, SortMenu.modal_copy, ModalWindow.delete_class);
+    const delete_workouts = await modal_window(CustomModalSettings.messages.workouts.delete_workouts_title,
+                                                CustomModalSettings.messages.workouts.delete_workout_copy,
+                                                CustomModalSettings.classes.delete);
 
     if(delete_workouts){
         //1. Clear workouts from State & LocalStorage
@@ -21,6 +23,11 @@ const delete_all_workouts = async function(){
     
         //3. Clear map
         MapView._delete_layer();
+
+        //4. Show toast
+        toast_window(CustomModalSettings.messages.workouts.delete_all_toast_title,
+                    "",
+                    CustomModalSettings.classes.success)
     }
     return;
 }

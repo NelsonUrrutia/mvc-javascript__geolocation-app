@@ -4,6 +4,8 @@ import { mark_pin_on_map, reset_map_layer, mark_saved_workouts } from "./_map.js
 import { render_workouts_cards } from "./_render_workout.js";
 import { State } from "../models/State.js";
 import RenderWorkouts from "../views/RenderWorkouts.js";
+import { modal_window, toast_window } from "./_modal_windows.js";
+import { CustomModalSettings } from "../helpers.js";
 
 const submit_event = function(data){    
     
@@ -11,12 +13,20 @@ const submit_event = function(data){
     const [[index, workout_id], ..._] = data; 
 
     //2.Edit workout    
-    if(workout_id !== '') edit_workout(data);
+    if(workout_id !== '') {
+        edit_workout(data);
+        toast_window(CustomModalSettings.messages.workouts.edited_workout_succes,
+            CustomModalSettings.messages.workouts.edited_workout_copy,
+            CustomModalSettings.classes.success);
+    };
     
     //3. Save new workout
-    if(workout_id === ""){
-        save_workout(data);
-    } 
+    if(workout_id === "") {
+        save_workout(data)
+        toast_window(CustomModalSettings.messages.workouts.saved_workout_title,
+            CustomModalSettings.messages.workouts.saved_workout_copy,
+            CustomModalSettings.classes.success);
+    } ; 
 
     //4. Passing New workout coords to map controller
     const [[key_wrk,wrk], [key_l,latitude], [key_ln,longitude], [key_w, workout_type],...rest] = data;
@@ -30,18 +40,23 @@ const submit_event = function(data){
     render_workouts_cards();
 }
 
-export const controller_delete_workout = function(workout_id){
-    //1. Delete from state
-    delete_workout(workout_id);
+export const controller_delete_workout = async function(workout_id){
+        //1. Delete from state
+        delete_workout(workout_id);
+    
+        //2. Reset map 
+        reset_map_layer();
+    
+        //3. Render cards
+        render_workouts_cards();
+    
+        //4.Mark new pins
+        mark_saved_workouts();
 
-    //2. Reset map 
-    reset_map_layer();
-
-    //3. Render cards
-    render_workouts_cards();
-
-    //4.Mark new pins
-    mark_saved_workouts()
+        //5.Show toast
+        toast_window(CustomModalSettings.messages.workouts.delete_toast_title,
+            CustomModalSettings.messages.workouts.delete_toast_copy,
+            CustomModalSettings.classes.success);
 }
 
 const cancel_workout = function(){    
