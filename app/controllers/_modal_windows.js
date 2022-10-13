@@ -38,9 +38,10 @@ export const modal_window = async function(title, copy, type ){
  * @param {String} title Custom title. Check helpers.js/CustomModalSettings.js for options
  * @param {String} copy Optional, set "" to skip this. Custom copy. Check helpers.js/CustomModalSettings.js for options
  * @param {String} type Custom class. Check helpers.js/CustomModalSettings.js for options
+ * @param {Boolean} enable_user_interaction Show x on the top. User needs to click the toast or the button to close the toast
  */
 
-export const toast_window = function(title, copy, type){
+export const toast_window = function(title, copy, type, enable_user_interaction){
     //1. Build toast Markup
-    ModalWindow.build_toast(title, copy,type);
+    ModalWindow.build_toast(title, copy,type, enable_user_interaction);
 }

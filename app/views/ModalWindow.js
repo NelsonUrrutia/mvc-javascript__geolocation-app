@@ -1,17 +1,12 @@
 class ModalWindow{
 
-    delete_class = "delete";
-    error_class = "error";
-    edit_clas = "edit";
-    succes_class = "success";
-
-
     #modal = document.querySelector("#global__window");
     #toast = document.querySelector("#toast");
     #custom_text = document.querySelector("#global__window");
-    delete_button = document.querySelector("#delete");
-    cancel_button = document.querySelector("#cancel_delete");
+    #delete_button = document.querySelector("#delete");
+    #cancel_button = document.querySelector("#cancel_delete");
     #edit_button = document.querySelector("#edit");
+    #close_toast = document.querySelector("#close_toast");
 
     //MODAL METHODS
 
@@ -35,7 +30,7 @@ class ModalWindow{
     }
 
     modal_delete_workout(handle){
-        this.delete_button.addEventListener("click", handle)
+        this.#delete_button.addEventListener("click", handle)
     }
 
     modal_edit_workout(handle){
@@ -43,7 +38,7 @@ class ModalWindow{
     }
 
     modal_cancel_delete(handle){
-        this.cancel_button.addEventListener("click", handle)
+        this.#cancel_button.addEventListener("click", handle)
     }
 
     show_modal(){
@@ -68,9 +63,10 @@ class ModalWindow{
      * @param {String} title Custom title. Check helpers.js/CustomModalSettings.js for options
      * @param {String} copy Optional, set "" to skip this. Custom copy. Check helpers.js/CustomModalSettings.js for options
      * @param {String} type Custom class. Check helpers.js/CustomModalSettings.js for options
+     * @param {Boolean} enable_user_interaction Show x on the top. User needs to click the toast or the button to close the toast
      */
 
-    build_toast(title, copy, type){
+    build_toast(title, copy, type, enable_user_interaction = false ){
         
         //1. Add custom class
         this.#toast.classList.add(type);
@@ -81,6 +77,14 @@ class ModalWindow{
 
         //3. Add class to show toast
         this.#toast.classList.add("show_toast");
+
+        //TODO:
+        //4. Check to show close button
+        //To close the toast user need to click the button
+        if(enable_user_interaction){
+            this.#close_toast.classList.remove("hidden");
+            return;
+        }
 
         //4. setTimeout to  hide toast & remove content
         setTimeout( () => {
@@ -98,11 +102,17 @@ class ModalWindow{
         this.#toast.querySelector('h3').innerHTML = "";
         this.#toast.querySelector("p").innerHTML = ""
     }
+
+    close_toast(type){
+        this.#toast.classList.remove("show_toast");
+        this.#close_toast.classList.add("hidden");
+        this.reset_toast(type);
+    }
 }
 
 export default new ModalWindow();
 
 /**
- * Funcionalidades
- * 1. Documentar Clase y Controlador
+ * Make a toast with an x only will be gone
+ * if user clicks the x
  */

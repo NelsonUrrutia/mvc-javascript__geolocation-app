@@ -3,7 +3,8 @@ export const CustomModalSettings = {
         error: "error",
         delete: "delete",
         success: "success",
-        edit:"edit"
+        edit:"edit",
+        warning: "warning"
     },
     messages:{
         workouts:{
@@ -20,7 +21,9 @@ export const CustomModalSettings = {
             delete_toast_title: "🔴 Workout Deleted!",
             delete_toast_copy: "Workout deleted succesfully",
             delete_all_toast_title: "🔴 Workouts Deleted"
-        }
-        
+        } ,
+        map:{
+            warning_message: "Your browser denied the location. The app can still be used."
+        }       
     }
 }

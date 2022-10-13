@@ -6,6 +6,8 @@ import { set_location_state } from "../models/_map.js";
 
 import { get_workouts } from "./_render_workout.js";
 import RenderWorkouts from "../views/RenderWorkouts.js";
+import { toast_window } from "./_modal_windows.js";
+import { CustomModalSettings } from "../helpers.js";
 
 const clickEvent = function(event){
     //1. Get latitude & longitude from the event
@@ -41,25 +43,35 @@ export const mark_pin_on_map = function(lat, lng, workout_type){
     MapView.mark_on_map(lat, lng, workout_type);    
 }
 
-export const reset_map_layer = function(){
-    MapView._delete_layer();
-}
+export const reset_map_layer = () =>  MapView._delete_layer();
+
 
 export const show_all_markers = () => MapView._show_all_markers();
 
 
 const init_map = async function(){
-
     //1. Call method to set location on State
-    await set_location_state();    
+    const denied_location = await set_location_state(); 
 
-    //2. Build map with location
+    //2. Show warning toast if user denied location
+    if(denied_location){
+        const {code, message} = denied_location;
+        if(code === 1){
+            toast_window(message, 
+                        CustomModalSettings.messages.map.warning_message, 
+                        CustomModalSettings.classes.warning,
+                        true);
+        }
+    }
+
+
+    //3. Build map with location
     MapView._render_map(State.user_location.latitude,State.user_location.longitude)
 
-    //3. Bind click event
+    //4. Bind click event
     MapView.addHandlerClickOnMap(clickEvent)
 
-    //4. Show Pin on saved workouts
+    //5. Show Pin on saved workouts
     mark_saved_workouts();
 }
 
