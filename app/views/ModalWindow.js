@@ -71,7 +71,7 @@ class ModalWindow{
      */
 
     build_toast(title, copy, type){
-        debugger
+        
         //1. Add custom class
         this.#toast.classList.add(type);
 
@@ -85,9 +85,9 @@ class ModalWindow{
         //4. setTimeout to  hide toast & remove content
         setTimeout( () => {
             this.#toast.classList.remove("show_toast")
-            setTimeout ( () => this.reset_toast(type), 25100)
+            setTimeout ( () => this.reset_toast(type), 2001)
             ;            
-        }, 2500);
+        }, 2000);
     }
 
     reset_toast(type){

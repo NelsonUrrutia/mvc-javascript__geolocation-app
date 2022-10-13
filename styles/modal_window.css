@@ -117,6 +117,14 @@ button#edit{
     transition: ease-in 0.8s;
 }
 
+#toast.error{
+    background-color: var(--red);
+}
+
+#toast.error :is(h3, p){
+    color: var(--white_100);
+}
+
 #toast h3{
     font-size: 1.8rem;
 }
@@ -128,11 +136,12 @@ button#edit{
 /*Common State classes */
 
 #global__window.delete #internal_window,
-#toast.error{
+#toast.delete{
     border-left-color: var(--red);
 }
 
-#global__window.edit #internal_window{
+#global__window.edit #internal_window,
+#toast.edit{
     border-left-color: var(--yellow);
 }
 

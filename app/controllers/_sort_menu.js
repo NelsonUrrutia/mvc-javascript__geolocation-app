@@ -27,7 +27,7 @@ const delete_all_workouts = async function(){
         //4. Show toast
         toast_window(CustomModalSettings.messages.workouts.delete_all_toast_title,
                     "",
-                    CustomModalSettings.classes.success)
+                    CustomModalSettings.classes.delete)
     }
     return;
 }

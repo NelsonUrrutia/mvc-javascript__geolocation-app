@@ -17,7 +17,7 @@ const submit_event = function(data){
         edit_workout(data);
         toast_window(CustomModalSettings.messages.workouts.edited_workout_succes,
             CustomModalSettings.messages.workouts.edited_workout_copy,
-            CustomModalSettings.classes.success);
+            CustomModalSettings.classes.edit);
     };
     
     //3. Save new workout
@@ -56,7 +56,7 @@ export const controller_delete_workout = async function(workout_id){
         //5.Show toast
         toast_window(CustomModalSettings.messages.workouts.delete_toast_title,
             CustomModalSettings.messages.workouts.delete_toast_copy,
-            CustomModalSettings.classes.success);
+            CustomModalSettings.classes.delete);
 }
 
 const cancel_workout = function(){    
