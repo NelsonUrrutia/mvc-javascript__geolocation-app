@@ -2,7 +2,6 @@ class ModalWindow{
 
     #modal = document.querySelector("#global__window");
     #toast = document.querySelector("#toast");
-    #custom_text = document.querySelector("#global__window");
     #delete_button = document.querySelector("#delete");
     #cancel_button = document.querySelector("#cancel_delete");
     #edit_button = document.querySelector("#edit");
@@ -70,6 +69,7 @@ class ModalWindow{
         
         //1. Add custom class
         this.#toast.classList.add(type);
+        this.#toast.setAttribute("type", type);
 
         //2. Set custom content
         this.#toast.querySelector("h3").innerHTML = title;
@@ -94,6 +94,10 @@ class ModalWindow{
         }, 2000);
     }
 
+    addHandlerCloseToast(handle){
+        this.#close_toast.addEventListener("click", handle)
+    }
+
     reset_toast(type){
         //1. Remove custom class
         this.#toast.classList.remove(type);
@@ -103,16 +107,11 @@ class ModalWindow{
         this.#toast.querySelector("p").innerHTML = ""
     }
 
-    close_toast(type){
+    close_toast(){
         this.#toast.classList.remove("show_toast");
         this.#close_toast.classList.add("hidden");
-        this.reset_toast(type);
+        this.reset_toast(this.#toast.getAttribute("type"));
     }
 }
 
 export default new ModalWindow();
-
-/**
- * Make a toast with an x only will be gone
- * if user clicks the x
- */

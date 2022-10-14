@@ -45,3 +45,9 @@ export const toast_window = function(title, copy, type, enable_user_interaction)
     //1. Build toast Markup
     ModalWindow.build_toast(title, copy,type, enable_user_interaction);
 }
+
+const close_toast_window = () => ModalWindow.close_toast();
+
+export const init_modal_window = function(){
+    ModalWindow.addHandlerCloseToast(close_toast_window)
+}
