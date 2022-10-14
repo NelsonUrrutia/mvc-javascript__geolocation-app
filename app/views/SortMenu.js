@@ -5,6 +5,8 @@ class SortMenu{
     #filter_prop = document.querySelector("#workouts_prop");
     #reset_filters = document.querySelector("#reset_filters");
     #show_all_workouts = document.querySelector("#map_view_all");
+    #active_filters_container = document.querySelector("#active_filters");
+    #active_filters_list = document.querySelector("#active_filters_list");
 
     addHandlerDeleteAllWorkouts(handler){
         this.#delete_btn.addEventListener("click", function(e){
@@ -41,6 +43,27 @@ class SortMenu{
 
     reset_filter_prop(){
         this.#filter_prop.value = "";
+    }
+
+    //TODO:
+    //ADD FUNCTIONS TO CHANGE THE ACTIVE FILTER
+
+    show_active_filters(filter){
+        //1. Check if has 'hidden' class & remove it
+        if(this.#active_filters_container.classList.contains('hidden'))
+            this.#active_filters_container.classList.remove("hidden")
+
+        //2. Generate Markup
+        const markup = `<li filter-handle="${filter}">${filter}</li>`
+
+        //3. Insert markup
+        this.#active_filters_list.insertAdjacentHTML("beforeend", markup);
+
+    }
+
+    close_active_filters(){
+        this.#active_filters_container.classList.add("hidden");
+        this.#active_filters_list.innerHTML = "";
     }
 }
 

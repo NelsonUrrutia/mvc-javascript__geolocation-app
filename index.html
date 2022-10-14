@@ -22,15 +22,15 @@
                 <div class="sorting_dropdowns">
                     <select name="workout-types-filter" id="workouts_type_filter">
                         <option value="" disabled selected>Workout Type</option>
-                        <option value="running">Running</option>
-                        <option value="cycling">Cycling</option>
+                        <option value="running" option-title="Running">Running</option>
+                        <option value="cycling" option-title="Cycling">Cycling</option>
                     </select>
                     <select name="workout-prop" id="workouts_prop">
                         <option value="" disabled selected>Workout Props</option>
-                        <option value="duration_descending">Time (HIGHEST FIRST) </option>
-                        <option value="duration_ascending">Time (LOWEST FIRST)</option>
-                        <option value="distance_descending">Distance (HIGHEST FIRST)</option>
-                        <option value="distance_ascending">Distance (LOWEST FIRST)</option>
+                        <option value="duration_descending" option-title="Time (HIGHEST FIRST)">Time (HIGHEST FIRST) </option>
+                        <option value="duration_ascending" option-title="Time (LOWEST FIRST)">Time (LOWEST FIRST)</option>
+                        <option value="distance_descending" option-title="Distance (HIGHEST FIRST)">Distance (HIGHEST FIRST)</option>
+                        <option value="distance_ascending" option-title="Distance (LOWEST FIRST)">Distance (LOWEST FIRST)</option>
                     </select>
                 </div>               
                 <div class="sorting_buttons">                    
@@ -44,6 +44,11 @@
                         <img src="images/trash.svg" alt="Delete all workouts">
                     </button>
                 </div>
+
+            </div>
+            <div id="active_filters" class="hidden">
+                <p>ACTIVE FILTERS:</p>
+                <ul id="active_filters_list"></ul>
             </div>
             
             <form action="" id="workout_form" class="hidden" >

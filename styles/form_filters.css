@@ -94,3 +94,30 @@
 #sort_menu button:hover img{
     opacity: 0.8;
 }
+
+
+/* Active Filters */
+#active_filters{
+    width: 100%;
+    display: flex;
+    background-color: var(--white_200);
+    border-radius: 5px ;
+    margin-top: 1rem;
+    padding: 1.5rem;
+    gap: 1rem;
+}
+
+#active_filters p{
+    font-size: 1.3rem;
+    font-weight: 600;
+}
+
+#active_filters_list{
+    list-style: none;
+    display: flex;
+    gap: 1rem;
+}
+
+#active_filters_list li{
+    font-size: 1.3rem;
+}

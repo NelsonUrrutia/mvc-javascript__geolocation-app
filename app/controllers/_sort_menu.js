@@ -32,9 +32,12 @@ const delete_all_workouts = async function(){
     return;
 }
 
-const sort_by_type = function(event){  
+const sort_by_type = function(event){ 
+    
+    const dropdown = event.target;
+
     //1. Get workout type
-    const handle = event.target.value;
+    const handle = dropdown.value;
 
     //2. Build filtered array
     filter_workouts_type(handle);
@@ -44,9 +47,18 @@ const sort_by_type = function(event){
 
     //4. Render State new array
     render_workouts_cards(State.filtered_workouts)
+
+    //5. Get option title
+    const option_title =  dropdown.options[dropdown.selectedIndex].getAttribute("option-title");
+    
+    //6. Show active filter
+    SortMenu.show_active_filters(option_title);
 }
 
 const sort_by_props = function(event){
+    
+    const dropdown = event.target;
+
     //1. Get prop handle
     const handle = event.target.value;
 
@@ -55,6 +67,13 @@ const sort_by_props = function(event){
 
     //3. Render State filtered workouts
     render_workouts_cards(State.filtered_workouts, true);
+
+    //5. Get option title
+    const option_title =  dropdown.options[dropdown.selectedIndex].getAttribute("option-title");
+    
+    //6. Show active filter
+    SortMenu.show_active_filters(option_title);
+
 }
 
 const reset_filters = function(){
@@ -66,6 +85,9 @@ const reset_filters = function(){
 
     //3. Clear value of dropdowns
     SortMenu.reset_filter_controls();
+
+    //4. Hide active filters container
+    SortMenu.close_active_filters();
 }
 
 const show_all_workouts = () => show_all_markers();
