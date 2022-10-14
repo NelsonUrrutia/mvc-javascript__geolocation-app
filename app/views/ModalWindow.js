@@ -78,9 +78,7 @@ class ModalWindow{
         //3. Add class to show toast
         this.#toast.classList.add("show_toast");
 
-        //TODO:
         //4. Check to show close button
-        //To close the toast user need to click the button
         if(enable_user_interaction){
             this.#close_toast.classList.remove("hidden");
             return;

@@ -71,6 +71,16 @@ const cancel_workout = function(){
 
 }
 
+const change_workout_inputs = function(){
+    //1. Toggle hidden class on inputs
+    AddWorkout.container_input_cadence.classList.toggle("hidden");
+    AddWorkout.conatiner_input_elevation.classList.toggle("hidden");
+
+    //2.Reset values
+    AddWorkout.input_cadence.value = "";
+    AddWorkout.input_elevation.value = "";
+}
+
 /**
  * ### Workout Controller Initializer
  * Publisher/Subscriber Pattern
@@ -78,7 +88,7 @@ const cancel_workout = function(){
  */
 export const init_workout_form = function(){
 
-    AddWorkout.addHandlerChangeWorkout();
+    AddWorkout.addHandlerChangeWorkout(change_workout_inputs);
     AddWorkout._addHandlerSubmit(submit_event);
     AddWorkout._addHandlerCancel(cancel_workout)
 }

@@ -7,8 +7,10 @@ class AddWorkout{
     #input_type = this.#form.querySelector(".form__input--type");
     #input_distance = this.#form.querySelector(".form__input--distance");
     #input_duration = this.#form.querySelector(".form__input--duration");
-    #input_cadence = this.#form.querySelector(".form__input--cadence");
-    #input_elevation = this.#form.querySelector(".form__input--elevation");
+    container_input_cadence = this.#form.querySelector("[cadence]");
+    conatiner_input_elevation = this.#form.querySelector("[elev-gain]");
+    input_cadence = this.#form.querySelector(".form__input--cadence");
+    input_elevation = this.#form.querySelector(".form__input--elevation");
     #cancel_workout_btn = this.#form.querySelector("#cancel");
 
     /**
@@ -22,21 +24,8 @@ class AddWorkout{
      * Toggle hidden class between inputs
      */
     
-    addHandlerChangeWorkout(){        
-        this.#form.querySelector('.form__input--type').addEventListener("change", function(e){
-            //1. Select parent element
-            const parent_element = this.closest('#workout_form');
-
-            //2. Toggle 'hidden' class on inputs
-            parent_element.querySelector("[cadence]").classList.toggle('hidden');
-            parent_element.querySelector("[elev-gain]").classList.toggle('hidden');
-
-            //TODO:
-            // Make it publisher/subscriber to include the this (pointing the class)
-            //3. Reset values            
-            document.querySelector('.form__input--cadence').value = '';   
-            document.querySelector(".form__input--elevation").value = ""   ;
-        })
+    addHandlerChangeWorkout(handler){     
+        this.#input_type.addEventListener("change", handler);
     }
 
     /**
@@ -90,15 +79,15 @@ class AddWorkout{
         this.#input_lng.value = longitude;
 
         if(elevGain){
-            this.#input_elevation.value = elevGain;
-            this.#input_elevation.closest(".form__row").classList.remove('hidden');
-            this.#input_cadence.closest(".form__row").classList.add('hidden');
+            this.input_elevation.value = elevGain;
+            this.input_elevation.closest(".form__row").classList.remove('hidden');
+            this.input_cadence.closest(".form__row").classList.add('hidden');
         } 
 
         if(cadence) {
-            this.#input_cadence.value = cadence;
-            this.#input_cadence.closest(".form__row").classList.remove('hidden');
-            this.#input_elevation.closest(".form__row").classList.add('hidden');
+            this.input_cadence.value = cadence;
+            this.input_cadence.closest(".form__row").classList.remove('hidden');
+            this.input_elevation.closest(".form__row").classList.add('hidden');
         };      
     }
 
