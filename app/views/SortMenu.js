@@ -45,20 +45,22 @@ class SortMenu{
         this.#filter_prop.value = "";
     }
 
-    //TODO:
-    //ADD FUNCTIONS TO CHANGE THE ACTIVE FILTER
-
-    show_active_filters(filter){
+    show_active_filters(filter, type){
         //1. Check if has 'hidden' class & remove it
         if(this.#active_filters_container.classList.contains('hidden'))
-            this.#active_filters_container.classList.remove("hidden")
+            this.#active_filters_container.classList.remove("hidden");
 
-        //2. Generate Markup
-        const markup = `<li filter-handle="${filter}">${filter}</li>`
+        //2. Create markup
+        const markup = `<li filter="${type}">${filter}</li>`;
 
-        //3. Insert markup
-        this.#active_filters_list.insertAdjacentHTML("beforeend", markup);
+        //3. Select list element
+        const filter_el = this.#active_filters_list.querySelector(`[filter="${type}"]`);
+        
+        //4. Insert markup if element is new
+        if(!filter_el) this.#active_filters_list.insertAdjacentHTML("beforeend", markup);
 
+        //5. Update filter content if element exist
+        if(filter_el) filter_el.innerHTML = filter;
     }
 
     close_active_filters(){

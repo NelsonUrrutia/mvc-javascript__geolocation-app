@@ -55,7 +55,7 @@
 }
 
 .workout_card :is(p, li){
-    font-size: 2.1rem;
+    font-size: 1.8rem;
 }
 
 .workout_card h3{
@@ -74,7 +74,7 @@
 }
 
 .workout_card span{
-    font-size: 1.8rem;
+    font-size: 1.4rem;
     font-weight: 600;
     text-transform: uppercase;
 }

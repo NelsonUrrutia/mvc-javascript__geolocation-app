@@ -27,7 +27,6 @@ TODO:
     -> Poner un icono de informacion en la esquina para desplegar la info
     -> Link a github
     -> Hacer mensaje en linkedin
-14. Show active filters below filter controller
 16. Improve documentation
 17. Make a mobile verision + responsive
 //https://stackoverflow.com/questions/66330228/how-to-destructure-an-array-of-objects-into-multiple-arrays-of-its-keys

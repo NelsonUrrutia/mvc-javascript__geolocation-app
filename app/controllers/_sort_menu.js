@@ -52,7 +52,7 @@ const sort_by_type = function(event){
     const option_title =  dropdown.options[dropdown.selectedIndex].getAttribute("option-title");
     
     //6. Show active filter
-    SortMenu.show_active_filters(option_title);
+    SortMenu.show_active_filters(option_title, "type");
 }
 
 const sort_by_props = function(event){
@@ -72,7 +72,7 @@ const sort_by_props = function(event){
     const option_title =  dropdown.options[dropdown.selectedIndex].getAttribute("option-title");
     
     //6. Show active filter
-    SortMenu.show_active_filters(option_title);
+    SortMenu.show_active_filters(option_title, "props");
 
 }
 
