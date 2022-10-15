@@ -5,4 +5,5 @@
 @import 'form_workout.css';
 @import 'workouts.css';
 @import 'map_popup.css';
-@import 'modal_window.css'
+@import 'modal_window.css';
+@import "app_info_window.css"

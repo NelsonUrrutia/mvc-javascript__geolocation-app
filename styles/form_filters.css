@@ -53,9 +53,9 @@
 #sort_menu button::after{    
     content: attr(tile);
     position: absolute;
-    top: -50%;
+    top: -60%;
     left: 50%;
-    transform: translate(-50%, -40%);
+    transform: translate(-50%, -50%);
     width: 12.5rem;    
     display: block;    
     border-radius: 5px;
@@ -69,6 +69,10 @@
 
 #reset_filters::after, #map_view_all::after{
     background-color: var(--grey_600);
+}
+#app_info::after{
+    background-color: var(--blue);
+    width: 8rem !important;
 }
 
 #delete_all_workouts::after{

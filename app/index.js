@@ -12,14 +12,24 @@ init_modal_window();
 
 /**
 TODO:
-6. More realistic error messages
-15. Reverse Geocode to get the name of the place on the description
+1. More realistic error messages (Based on unit testing)
+    -> Use trycath
+    -> Use Modal Window/toast
+
+2. Make a mobile verision + responsive (make a new branch mobile_responsive)
+
+3. Reverse Geocode to get the name of the place on the description
 
 
-8. Ability to draw lines and shapes instead of just points
-9. Make a destructuring function, pass name of properties an return values;
-10. Rename functions and variables 
-12. Mostrar al iniciar la app un mensaje con la informacion de la aplicacion
+4. Ability to draw lines and shapes instead of just points (make a new branch draw_lines)
+    https://leaflet.github.io/Leaflet.draw/docs/leaflet-draw-latest.html
+
+5. Make a destructuring function, pass name of properties an return values;
+//https://stackoverflow.com/questions/66330228/how-to-destructure-an-array-of-objects-into-multiple-arrays-of-its-keys
+
+6. Rename functions and variables 
+
+7. Mostrar al iniciar la app un mensaje con la informacion de la aplicacion
     -> inclyuendo gifs con explicaciones
     -> Mostrar descripcion de la app
     -> Arquitectura
@@ -27,7 +37,12 @@ TODO:
     -> Poner un icono de informacion en la esquina para desplegar la info
     -> Link a github
     -> Hacer mensaje en linkedin
-16. Improve documentation
-17. Make a mobile verision + responsive
-//https://stackoverflow.com/questions/66330228/how-to-destructure-an-array-of-objects-into-multiple-arrays-of-its-keys
+    -> Nombrar el curso de JavaScript y poner link
+
+8. Improve documentation
+
+9. Make darkmode
+
+10. Make README with same Info
+
  */
