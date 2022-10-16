@@ -70,7 +70,7 @@
 #reset_filters::after, #map_view_all::after{
     background-color: var(--grey_600);
 }
-#app_info::after{
+#app_info_btn::after{
     background-color: var(--blue);
     width: 8rem !important;
 }

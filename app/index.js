@@ -15,6 +15,7 @@ TODO:
 1. More realistic error messages (Based on unit testing)
     -> Use trycath
     -> Use Modal Window/toast
+    -> Improve toast
 
 2. Make a mobile verision + responsive (make a new branch mobile_responsive)
 
@@ -44,5 +45,7 @@ TODO:
 9. Make darkmode
 
 10. Make README with same Info
+
+11. Restructure project files & folder
 
  */
