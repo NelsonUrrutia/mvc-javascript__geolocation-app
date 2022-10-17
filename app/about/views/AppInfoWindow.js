@@ -8,26 +8,10 @@
 
 class AppInfoWindow{
 
-    #main_container = document.querySelector("#app_info");
-    #close_btn = document.querySelector("#close_app_info");
+    #main_navigation_container = document.querySelector("header");
     _navigation = document.querySelector(".navigation");
-    #content_body = document.querySelector(".app_info_body");
-    _header_el = document.querySelector(".app_info__header");
+    #content_body = document.querySelector(".articles_container");
 
-    addHandlerCloseInfo(handler){
-        this.#close_btn.addEventListener("click", function(e){
-            e.preventDefault();
-
-            //1. Get button
-            const btn = e.target.closest("#close_app_info");
-            if(!btn) return;
-
-            //2.Call handler
-            handler();        
-        })
-    }
-
-    // Tabs methods 
 
     addHandlerNavigation(handler){
         this._navigation.addEventListener("click", function(e){
@@ -42,38 +26,37 @@ class AppInfoWindow{
     }
 
     reset_content_active_state(){
-        this.#content_body.querySelectorAll(".info_content").forEach(el => el.classList.add('hidden'))
+        this.#content_body.querySelectorAll("article").forEach(el => el.classList.add('hidden'))
     }
 
     show_content(handler){
-
         //1. Hide all elements
         this.reset_content_active_state();
 
         //2. Show element with same handle
-        this.#content_body.querySelector(`.info_content[data-nav-handle="${handler}"]`).classList.remove("hidden");
+        this.#content_body.querySelector(`article[data-nav-handle="${handler}"]`).classList.remove("hidden");
     }
 
     //Sticky navigation methods
-    make_sticky_header(){
+//     make_sticky_header(){
+// debugger
+//         const navHeight = this.#main_navigation_container.getBoundingClientRect().height;
+//         const header = this.#main_navigation_container;
 
-        const navHeight = this._header_el.getBoundingClientRect().height;
-        const header = this._header_el;
-
-        const stickyNav = function (entries) {
-            const [entry] = entries;
-            if (!entry.isIntersecting)
-            header.classList.add('sticky')
-            else
-            header.classList.remove('sticky')
-        }
-        const headerObserver = new IntersectionObserver(stickyNav, {
-            root: null,
-            threshold: 0,
-            rootMargin: `-${navHeight}px`
-        });
-        headerObserver.observe(this._header_el)
-    }
+//         const stickyNav = function (entries) {
+//             const [entry] = entries;
+//             if (!entry.isIntersecting)
+//             header.classList.add('sticky')
+//             else
+//             header.classList.remove('sticky')
+//         }
+//         const headerObserver = new IntersectionObserver(stickyNav, {
+//             root: null,
+//             threshold: 0,
+//             rootMargin: `-${navHeight}px`
+//         });
+//         headerObserver.observe(this.#main_navigation_container)
+//     }
 
 }
 

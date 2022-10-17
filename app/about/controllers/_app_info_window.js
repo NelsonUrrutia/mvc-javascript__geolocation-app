@@ -17,6 +17,7 @@ const navigation_controller = function(item){
 
 export const init_app_info_window = function(){
     AppInfoWindow.addHandlerNavigation(navigation_controller)
-    AppInfoWindow.make_sticky_header();
+ 
+    //Add event intersection obeserver on the body container no the heade
 } 
 
