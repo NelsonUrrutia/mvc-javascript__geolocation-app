@@ -1,0 +1,49 @@
+[data-nav-handle="tec_info"] h2{
+    text-align: center;
+    font-size: 4rem;
+    line-height: 5rem;
+    margin-bottom: 2rem;
+}
+
+/* Tech Stack Rows */
+
+.tech_stack_icons{
+    display: grid;
+    grid-template-columns: repeat(4,minmax(0, 20%));
+    grid-template-rows: repeat(2, 1fr);
+    max-width: 75%;
+    text-align: center;
+    justify-content: space-evenly;
+    gap: 1rem;
+    margin: 2rem  auto 0 auto;
+}
+
+.tech_card{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    padding: 1rem;
+    border-radius: 5px;
+}
+
+.tech_card:hover{
+    background-color: var(--white_200);
+}
+
+.tech_stack_icons span{
+    font-size: 2.5rem;
+    font-weight: 600;
+}   
+
+.tech_stack_icons a{
+    text-decoration: none;
+}
+
+/* COMMON MEDIA QUERY */
+
+@media(max-width: 900px){
+    .tech_stack_icons{
+        max-width: 90%;
+        grid-template-columns: repeat(2,minmax(0, 50%));
+    }
+}
