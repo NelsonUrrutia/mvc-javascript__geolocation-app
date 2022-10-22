@@ -34,14 +34,8 @@ export const mark_saved_workouts = function(){
     })
 }
 
-export const mark_pin_on_map = function(lat, lng, workout_type){
-    //TODO:
-    //1. Passing to a reverse geolocation
-    // const reverse_geo_data = await reverse_geocoding(lat, lng);
+export const mark_pin_on_map = (lat, lng, workout_type) => MapView.mark_on_map(lat, lng, workout_type);    
 
-    //2. Passing coords and results of reverse geolocation
-    MapView.mark_on_map(lat, lng, workout_type);    
-}
 
 export const reset_map_layer = () =>  MapView._delete_layer();
 

@@ -12,10 +12,7 @@ init_modal_window();
 
 /**
 TODO:
-1. More realistic error messages (Based on unit testing)
-    -> Use trycath
-    -> Use Modal Window/toast
-    -> Improve toast
+1. unit testing
 
 2. Make a mobile verision + responsive (make a new branch mobile_responsive)
 
@@ -28,8 +25,6 @@ TODO:
 5. Make a destructuring function, pass name of properties an return values;
 //https://stackoverflow.com/questions/66330228/how-to-destructure-an-array-of-objects-into-multiple-arrays-of-its-keys
 
-6. Rename functions and variables 
-
 7.About Page informacion de la aplicacion
     -> inclyuendo gifs con explicaciones
     -> Mostrar descripcion de la app
@@ -40,12 +35,8 @@ TODO:
     -> Hacer mensaje en linkedin
     -> Nombrar el curso de JavaScript y poner link
 
-8. Improve documentation
-
 9. Make darkmode
 
 10. Make README with same Info
-
-11. Restructure project files & folder
 
  */
