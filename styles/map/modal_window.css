@@ -104,7 +104,7 @@ button#edit{
     padding: 1rem;
     background-color: var(--white_200);
     border-radius: 5px;
-    border-left: 0.6rem solid transparent;
+    color: var(--white_100);
 
 
     -webkit-box-shadow: 0px 0px 8px -1px rgba(0,0,0,0.8); 
@@ -117,16 +117,20 @@ button#edit{
     transition: ease-in 0.8s;
 }
 
-#toast.error{
+#toast.delete{
     background-color: var(--red);
 }
-#toast.warning{
+
+#toast.warning,
+#toast.edit{
     background-color: var(--yellow);
-    border-left-color: var(--yellow);
 }
 
-#toast.error :is(h3, p),
-#toast.warning  :is(h3, p){
+#toast.success{
+    background-color: var(--green);
+}
+
+#toast :is(p, h3){
     color: var(--white_100);
 }
 
@@ -157,11 +161,7 @@ button#edit{
     border-left-color: var(--red);
 }
 
-#global__window.edit #internal_window,
-#toast.edit{
+#global__window.edit #internal_window{
     border-left-color: var(--yellow);
 }
 
-#toast.success{
-    border-left-color: var(--green);
-}

@@ -1,9 +1,18 @@
 import { State } from "./State.js";
 import { MONTHS } from "../conf.js";
 
-const persist_workouts = function(){    
-    localStorage.setItem('workouts', JSON.stringify(State.workouts))
-}
+/**
+ * # Persist in localStorage
+ * 
+ * ### Function to save every change on the State Object in to localStorage
+ */
+
+const persist_workouts = () => localStorage.setItem('workouts', JSON.stringify(State.workouts));
+
+/**
+ * # Create workout descrioption
+ * @returns String Month/Day
+ */
 
 const set_workout_description = function(){
     const date = new Date();
@@ -12,81 +21,123 @@ const set_workout_description = function(){
     return `${set_month} ${set_day}`;
 }
 
-export const save_workout = function(data){       
+/**
+ * # Save workout
+*  @param {Array} data Array with workout data
+ */
+
+export const save_workout = function(data){   
     
-    //1. Destructuring Data 
-    const [[_,__], [key_l, latitude], [key_lng, longitude], [key_w,workout_type],
-    [key_d, distance], [key_dr, duration], [key_c, cadence], [key_el, elevGain]] = data;
-    
-    //2. Creating ID To Workout
-    const id = (Date.now() + '').slice(-10);    
+    try { 
+        //1. Destructuring Data 
+        const [[_,__], [key_l, latitude], [key_lng, longitude], [key_w,workout_type],
+        [key_d, distance], [key_dr, duration], [key_c, cadence], [key_el, elevGain]] = data;
         
-    //3. Creating Description  
-    const workout_description = set_workout_description()    
+        //2. Creating ID To Workout
+        const id = (Date.now() + '').slice(-10);    
+            
+        //3. Creating Description  
+        const workout_description = set_workout_description()    
+        
+        //4. Creating workout obj    
+        const workout = {
+            workout_id: id,
+            workout_description: workout_description,
+            workout_coords:{
+                latitude: latitude,
+                longitude:longitude            
+            },
+            workout_type:workout_type,
+            distance:distance,
+            duration:duration,
+            ...(cadence && { cadence: cadence}),
+            ...(elevGain && {elevGain:elevGain})
+        }
     
-    //4. Creating workout obj    
-    const workout = {
-        workout_id: id,
-        workout_description: workout_description,
-        workout_coords:{
-            latitude: latitude,
-            longitude:longitude            
-        },
-        workout_type:workout_type,
-        distance:distance,
-        duration:duration,
-        ...(cadence && { cadence: cadence}),
-        ...(elevGain && {elevGain:elevGain})
+        //5. Push workout object to state
+        State.workouts.push(workout);
+    
+        //6. Persist the new workouts
+        persist_workouts();
+
+        return 1;
+
+    } catch (error) {
+        return error
     }
-
-    //5. Push workout object to state
-    State.workouts.push(workout);
-
-    //6. Persist the new workouts
-    persist_workouts();
 }
+
+/**
+ * # Edit workout
+ * @param {Array} data Array with workout data
+ */
 
 export const edit_workout = function(data){
 
-    //1. Destructuring data
-    const [[key_workout, workout_id], [key_l, lat], [key_lng, lng], [key_w,workout_type],
-    [key_d, distance], [key_dr, duration], [key_c, cadence], [key_el, elevGain]] = data;
-    
-    //2. Find workout and re-asign new values
-    State.workouts.forEach(el => {        
-        if(el.workout_id === workout_id){
-            el.distance = distance;
-            el.duration = duration;
-            el.workout_type = workout_type;
-            if(workout_type === 'running'){
-                el.cadence = cadence;
-                delete el.elevGain;
-            } 
-            if(workout_type === 'cycling') {
-                el.elevGain = elevGain;
-                delete el.cadence;
+    try {
+        //1. Destructuring data
+        const [[key_workout, workout_id], [key_l, lat], [key_lng, lng], [key_w,workout_type],
+        [key_d, distance], [key_dr, duration], [key_c, cadence], [key_el, elevGain]] = data;
+        
+        //2. Find workout and re-asign new values
+        State.workouts.forEach(el => {        
+            if(el.workout_id === workout_id){
+                el.distance = distance;
+                el.duration = duration;
+                el.workout_type = workout_type;
+                if(workout_type === 'running'){
+                    el.cadence = cadence;
+                    delete el.elevGain;
+                } 
+                if(workout_type === 'cycling') {
+                    el.elevGain = elevGain;
+                    delete el.cadence;
+                }
+                return;
             }
-            return;
-        }
-    });
+        });
+    
+        //3. Persist edited workout
+        persist_workouts();   
 
-    //3. Persist edited workout
-    persist_workouts();   
+        return 1;
+        
+    } catch (error) {
+        return error;
+    }
 }
+
+/**
+ * # Delete workout
+ * @param {*} id Workout ID to be delete
+ */
 
 export const delete_workout = function(id){
-    //1. Delete workout from State
-    const new_workouts = State.workouts.filter( workout => workout.workout_id !== id);
-    
-    //2. Empty workouts array
-    State.workouts = [];
 
-    //3. Fill workouts array with filtered workouts
-    State.workouts = new_workouts;
+    try {
+        //1. Delete workout from State
+        const new_workouts = State.workouts.filter( workout => workout.workout_id !== id);
+        
+        //2. Empty workouts array
+        State.workouts = [];
     
-    //4. Persist into localstorage
-    persist_workouts()
+        //3. Fill workouts array with filtered workouts
+        State.workouts = new_workouts;
+        
+        //4. Persist into localstorage
+        persist_workouts();
+
+        return 1;
+        
+    } catch (error) {
+        return error
+    }
 }
+
+/**
+ * # Clear all workouts
+ * Delete workouts from State and localStorage
+ */
 
 export const clear_all_workouts = function(){
 
@@ -97,13 +148,35 @@ export const clear_all_workouts = function(){
     persist_workouts();
 }
 
-export const get_workout_by_id = id => State.workouts.filter(work => work.workout_id === id);
+
+/**
+ * # Search workout by ID
+ * @param {*} id Workout ID to search
+ */
+
+export const get_workout_by_id = function(id){
+    const workout = State.workouts.filter(work => work.workout_id === id);
+    if( workout.length === 0) return [0];
+    if( workout.length > 0) return workout;
+}
+
+
+/**
+ * # Get saved workouts from localStorage
+ * @returns Array of workouts saved at localStorage
+ */
 
 export const get_saved_workouts = function(){
     const workouts = JSON.parse(localStorage.getItem("workouts"));
     if(!workouts) return;
     return workouts;    
 }
+
+
+/**
+ * # Filter workouts by type
+ * @param {*} type Workouts type
+ */
 
 export const filter_workouts_type = function(type){    
     //1. Create copy array
@@ -113,13 +186,21 @@ export const filter_workouts_type = function(type){
     State.filtered_workouts = copy_arr.filter(el => el.workout_type === type);
 };
 
-export const filter_workouts_prop = function(prop){        
-    let copy_workouts = [];
 
+/**
+ * # Filter workouts by property
+ * 
+ * @param {*} prop Workouts property
+ */
+
+export const filter_workouts_prop = function(prop){        
+    
     //1. Get property & sort param
     const [type, sort] = prop.split("_");
-
+    
     //2. Create copy of array
+    let copy_workouts = [];
+    
     //Check if exist filtered workouts
     State.filtered_workouts.length > 0 ? copy_workouts = State.filtered_workouts : copy_workouts = State.workouts;
 
@@ -131,7 +212,16 @@ export const filter_workouts_prop = function(prop){
     State.filtered_workouts = copy_workouts;
 }
 
+/**
+ * # Clear Array of filtered workouts
+ */
+
 export const clear_filtered_array = () => { State.filtered_workouts = []};
+
+/**
+ * # Init workouts in State
+ * Set saved workouts at localStorage in State.workouts
+ */
 
 export const init_state_workouts = function(){
     

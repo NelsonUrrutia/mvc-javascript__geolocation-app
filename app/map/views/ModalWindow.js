@@ -87,9 +87,9 @@ class ModalWindow{
         //4. setTimeout to  hide toast & remove content
         setTimeout( () => {
             this.#toast.classList.remove("show_toast")
-            setTimeout ( () => this.reset_toast(type), 2001)
+            setTimeout ( () => this.reset_toast(type), 1800)
             ;            
-        }, 2000);
+        }, 1800);
     }
 
     addHandlerCloseToast(handle){

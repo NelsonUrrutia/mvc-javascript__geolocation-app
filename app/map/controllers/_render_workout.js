@@ -4,7 +4,7 @@ import { get_saved_workouts, init_state_workouts, get_workout_by_id } from "../m
 import AddWorkout from "../views/AddWorkout.js";
 import MapView from "../views/MapView.js";
 import RenderWorkouts from "../views/RenderWorkouts.js";
-import { modal_window } from "./_modal_windows.js";
+import { modal_window, toast_window } from "./_modal_windows.js";
 
 import { controller_delete_workout } from "./_workout_form.js";
 
@@ -36,12 +36,19 @@ const edit_workout = function(workout_id){
 
     //1. Find workout on State
     const [workout_obj] = get_workout_by_id(workout_id);
-    
-    //2. Set data to inputs form
-    AddWorkout._fill_form_inputs(workout_obj);
 
-    //3. Show form
-    AddWorkout.show_workout_form();
+    if(workout_obj !== 0){
+        //2. Set data to inputs form
+        AddWorkout._fill_form_inputs(workout_obj);
+    
+        //3. Show form
+        AddWorkout.show_workout_form();
+    }else{
+        toast_window(CustomModalSettings.messages.workouts.error_not_found,
+            CustomModalSettings.messages.workouts.error_not_found_copy,
+            CustomModalSettings.classes.delete,
+            true);
+    }
 }
 
 export const click_workout_card_dispatcher = async function(event){

@@ -30,7 +30,7 @@ TODO:
 
 6. Rename functions and variables 
 
-7. Mostrar al iniciar la app un mensaje con la informacion de la aplicacion
+7.About Page informacion de la aplicacion
     -> inclyuendo gifs con explicaciones
     -> Mostrar descripcion de la app
     -> Arquitectura

@@ -14,18 +14,32 @@ const submit_event = function(data){
 
     //2.Edit workout    
     if(workout_id !== '') {
-        edit_workout(data);
-        toast_window(CustomModalSettings.messages.workouts.edited_workout_succes,
-            CustomModalSettings.messages.workouts.edited_workout_copy,
-            CustomModalSettings.classes.edit);
+        const edited_workout = edit_workout(data);
+        if(edited_workout === 1){
+            toast_window(CustomModalSettings.messages.workouts.edited_workout_succes,
+                CustomModalSettings.messages.workouts.edited_workout_copy,
+                CustomModalSettings.classes.success);
+        }
+        else{
+            toast_window(CustomModalSettings.messages.workouts.error_not_edited,
+                `${edit_workout}`,
+                CustomModalSettings.classes.delete);
+        }
     };
     
     //3. Save new workout
     if(workout_id === "") {
-        save_workout(data)
-        toast_window(CustomModalSettings.messages.workouts.saved_workout_title,
-            CustomModalSettings.messages.workouts.saved_workout_copy,
-            CustomModalSettings.classes.success);
+        const results_save_workout = save_workout(data);
+
+        if(results_save_workout === 1){
+            toast_window(CustomModalSettings.messages.workouts.saved_workout_title,
+                CustomModalSettings.messages.workouts.saved_workout_copy,
+                CustomModalSettings.classes.success);
+        }else{
+            toast_window(CustomModalSettings.messages.workouts.error_not_saved,
+                        `${results_save_workout}`,
+                        CustomModalSettings.classes.delete);
+        }
     } ; 
 
     //4. Passing New workout coords to map controller
@@ -42,7 +56,7 @@ const submit_event = function(data){
 
 export const controller_delete_workout = async function(workout_id){
         //1. Delete from state
-        delete_workout(workout_id);
+        const deleted_workout = delete_workout(workout_id);
     
         //2. Reset map 
         reset_map_layer();
@@ -54,9 +68,15 @@ export const controller_delete_workout = async function(workout_id){
         mark_saved_workouts();
 
         //5.Show toast
-        toast_window(CustomModalSettings.messages.workouts.delete_toast_title,
-            CustomModalSettings.messages.workouts.delete_toast_copy,
-            CustomModalSettings.classes.delete);
+        if(deleted_workout === 1){
+            toast_window(CustomModalSettings.messages.workouts.delete_toast_title,
+                CustomModalSettings.messages.workouts.delete_toast_copy,
+                CustomModalSettings.classes.success);
+        }else{
+            toast_window(CustomModalSettings.messages.workouts.error_not_deleted,
+                `${deleted_workout}`,
+                CustomModalSettings.classes.delete);
+        }
 }
 
 const cancel_workout = function(){    
