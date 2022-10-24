@@ -154,6 +154,17 @@ button#edit{
     cursor: pointer;
 }
 
+/* #toast Media Query */
+@media(max-width: 1024px){
+    #toast{
+        top: 1rem;
+        bottom: unset;
+    }
+}
+
+
+
+
 /*Common State classes */
 
 #global__window.delete #internal_window,

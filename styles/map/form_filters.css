@@ -22,6 +22,14 @@
     gap: 1rem;
 }
 
+/* .sorting_dropdowns Media Query */
+@media(max-width: 1024px){
+    .sorting_dropdowns{
+        width: 80%;
+        flex-direction: column;
+    }
+}
+
 #sort_menu select{    
     border-radius: 5px;
     border: none;
@@ -29,6 +37,15 @@
     padding: 0.5rem;
     width: 50%;
 }
+
+/* .sorting_dropdowns Media Query */
+@media(max-width: 1024px){
+    #sort_menu select{    
+        width: 100%;
+    }
+}
+
+
 
 /* Button */
 
@@ -39,6 +56,12 @@
     gap: 1rem;    
 }
 
+/* .sorting_dropdowns Media Query */
+@media(max-width: 1024px){
+    .sorting_buttons{
+        width: 45%;
+    }
+}
 
 #sort_menu button{    
     position: relative;

@@ -17,6 +17,11 @@
 <body>
 
     <section id="app_container">
+
+        <button id="mobile_show_content">
+            <img src="images/menu.svg" alt="Show Content">
+        </button>
+
         <div id="form_container">
             <div id="sort_menu"> 
                 <div class="sorting_dropdowns">
@@ -33,7 +38,7 @@
                         <option value="distance_ascending" option-title="Distance (LOWEST FIRST)">Distance (LOWEST FIRST)</option>
                     </select>
                 </div>               
-                <div class="sorting_buttons">                    
+                <div class="sorting_buttons">                 
                     <button id="reset_filters" tile="Reset Filters">
                         <img src="images/refresh-cw.svg" alt="Reset Filters">    
                     </button>
@@ -49,7 +54,6 @@
                         </a>
                     </button>
                 </div>
-
             </div>
             <div id="active_filters" class="hidden">
                 <p>ACTIVE FILTERS:</p>
@@ -94,7 +98,6 @@
                 </div>
             </form>
         
-
             <div id="workouts_list"></div>
 
             <div id="empty_message" class="hidden">
@@ -105,7 +108,6 @@
         <div id="map_container">
 
         </div>
-
     </section>
     
     <section id="global__window" class="hidden">
