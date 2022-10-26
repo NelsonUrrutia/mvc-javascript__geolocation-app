@@ -117,7 +117,7 @@ MOBILE OPEN CONTENT BUTTON
     border-radius: 100%;
 } 
 
-.bullet_point.selected::after{
+.mobile_form_actions li.selected .bullet_point::after{
     content:"";
     position: absolute;
     top: 50%;

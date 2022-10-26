@@ -7,8 +7,11 @@ class MobileMenu {
     
     #show_actions = document.querySelector("#show_mobile_actions")
     #show_filter_list_btn = document.querySelector("#show_mobile_filters");
-    #filter_list = document.querySelector(".mobile_filtes_list");
+    #filter_list = document.querySelector(".mobile_filter_list");
     #action_list = document.querySelector(".mobile_actions_list")    
+
+    #filters_type_container = document.querySelector("#mob_filters_type");
+    #filters_prop_container = document.querySelector("#mob_prop_type");
 
     addHandlerOpenContent(handle){
         this.#mobile_show_content.addEventListener("click",handle);
@@ -34,6 +37,14 @@ class MobileMenu {
         })
     }
 
+    addHandlerFilterList(handle){
+        this.#filters_type_container.addEventListener("click", handle)
+    }
+
+    addHandlerPropFilter(handle){
+        this.#filters_prop_container.addEventListener("click", handle)
+    }
+
     show_content(){
         this.#content_container.classList.add("open");
         this.#mobile_show_content.classList.add("hidden");
@@ -50,6 +61,14 @@ class MobileMenu {
 
     switch_actions(){
         this.#action_list.classList.toggle('hidden');
+    }
+
+    reset_type_filters(){
+        this.#filters_type_container.querySelectorAll('li').forEach(el => el.classList.remove('selected'))
+    }
+
+    reset_prop_filters(){
+        this.#filters_prop_container.querySelectorAll('li').forEach(el => el.classList.remove('selected'))
     }
 }
 

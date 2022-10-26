@@ -153,6 +153,7 @@
 
 #active_filters_list li{
     font-size: 1.3rem;
+    text-transform: capitalize;
 }
 
 #active_filters_list :not(li:first-child)::before{
