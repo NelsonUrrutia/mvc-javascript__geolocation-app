@@ -9,12 +9,11 @@
     gap: 1rem;
 }
 
-
-#filter_img{
-    max-width: 2.4rem;
-}
-
-/* Dropdowns */
+/* 
+=================
+    Dropdowns 
+=================
+*/
 
 .sorting_dropdowns{
     display: flex;
@@ -25,8 +24,7 @@
 /* .sorting_dropdowns Media Query */
 @media(max-width: 1024px){
     .sorting_dropdowns{
-        width: 80%;
-        flex-direction: column;
+        display: none;
     }
 }
 
@@ -47,7 +45,11 @@
 
 
 
-/* Button */
+/* 
+===============================
+    DESKTOP SORTING BUTTONS
+===============================
+*/
 
 .sorting_buttons{    
     display: flex;
@@ -59,7 +61,7 @@
 /* .sorting_dropdowns Media Query */
 @media(max-width: 1024px){
     .sorting_buttons{
-        width: 45%;
+        display: none;
     }
 }
 
@@ -73,7 +75,7 @@
     width: 22%;
 }
 
-#sort_menu button::after{    
+.sorting_buttons button::after{    
     content: attr(tile);
     position: absolute;
     top: -60%;
@@ -114,16 +116,20 @@
     margin: 0 auto;
 }
 
-#sort_menu button:hover{
+.sorting_buttons button:hover{
     background-color: var(--white_100);
 }
 
-#sort_menu button:hover img{
+.sorting_buttons button:hover img{
     opacity: 0.8;
 }
 
+/* 
+=====================
+    Active Filters 
+=====================    
+*/
 
-/* Active Filters */
 #active_filters{
     width: 100%;
     display: flex;

@@ -121,6 +121,7 @@
     align-items: center;
     justify-content: center;
     gap: 2rem;
+    z-index: 1;
 }
 
 #empty_message h2{
