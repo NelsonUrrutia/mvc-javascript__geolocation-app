@@ -7,7 +7,7 @@ import RenderWorkouts from "../views/RenderWorkouts.js";
 import { modal_window, toast_window } from "./_modal_windows.js";
 
 import { controller_delete_workout } from "./_workout_form.js";
-
+import { mobile_content_switch } from "../helpers.js";
 
 export const render_workouts_cards = function(workout_arr = [], filtered = false){
     //1. Clear content 
@@ -34,6 +34,9 @@ export const render_workouts_cards = function(workout_arr = [], filtered = false
 
 const edit_workout = function(workout_id){
 
+    //If mobile view, show content
+    mobile_content_switch(true)
+
     //1. Find workout on State
     const [workout_obj] = get_workout_by_id(workout_id);
 
@@ -56,6 +59,9 @@ export const click_workout_card_dispatcher = async function(event){
     
     // 1. Check if the edit button was clicked
     if(element_click.closest('.edit_workout')){
+        //If if mobile hide conent to show alert
+        mobile_content_switch(false)
+
         //1. Get id from workout card
         const workout_id = element_click.closest(".workout_card").dataset.workoutId;
         
@@ -68,7 +74,10 @@ export const click_workout_card_dispatcher = async function(event){
     }
     
     // 2. Check if the delete button was clicked
-    if(element_click.closest('.delete_workout')){        
+    if(element_click.closest('.delete_workout')){   
+        //If if mobile hide conent to show alert
+        mobile_content_switch(false)
+        
         //1. Get id from workout card
         const workout_id = element_click.closest(".workout_card").dataset.workoutId;
         
@@ -87,6 +96,9 @@ export const click_workout_card_dispatcher = async function(event){
         const latitude = element_click.closest('.workout_card')?.dataset.latitude;
         const longitude = element_click.closest('.workout_card')?.dataset.longitude;
         MapView.set_view_map(latitude,longitude);
+
+        //If mobile view, show content
+        mobile_content_switch(false)
         return;
     }
 

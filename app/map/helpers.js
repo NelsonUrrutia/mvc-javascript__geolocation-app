@@ -1,3 +1,5 @@
+import { mob_close_content, mob_open_content } from "./controllers/_mobile_sort_menu.js";
+
 export const CustomModalSettings = {
     classes:{
         delete: "delete",
@@ -31,4 +33,23 @@ export const CustomModalSettings = {
             warning_message: "Your browser denied the location. The app can still be used."
         }       
     }
+}
+
+const check_if_mobile = function(){
+    const width = window.innerWidth;
+    if(width <= 1024) return true; 
+}
+
+/**
+ * Switch to show/hide mobile container
+ * @param {*} open Flag. true => open // false => close
+ * @returns If is not mobile view 
+ */
+export  const mobile_content_switch = function(open = false){
+    const is_mobile = check_if_mobile();
+    if(!is_mobile) return;
+    if(open) 
+        mob_open_content();
+    else
+        mob_close_content();
 }

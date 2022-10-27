@@ -45,6 +45,10 @@ class MobileMenu {
         this.#filters_prop_container.addEventListener("click", handle)
     }
 
+    addHandlerActions(handle){
+        this.#action_list.addEventListener("click", handle)
+    }
+
     show_content(){
         this.#content_container.classList.add("open");
         this.#mobile_show_content.classList.add("hidden");

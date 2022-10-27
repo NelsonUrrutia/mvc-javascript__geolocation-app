@@ -3,11 +3,12 @@ import { filter_workouts_type, filter_workouts_prop } from "../models/_workout.j
 import MobileMenu from "../views/MobileMenu.js";
 import SortMenu from "../views/SortMenu.js";
 import { render_workouts_cards } from "./_render_workout.js";
+import { delete_all_workouts, reset_filters, show_all_workouts } from "./_sort_menu.js";
 
 
-const close_content = () => MobileMenu.close_workout_window();
+export const mob_close_content = () => MobileMenu.close_workout_window();
 
-const open_content =  () => MobileMenu.show_content();
+export const mob_open_content =  () => MobileMenu.show_content();
 
 const control_switch_filters = () => MobileMenu.switch_filter_list();
 
@@ -38,7 +39,7 @@ const mob_filter_by_type = function(el){
     SortMenu.show_active_filters(get_type, "type");
 
     //8. Hide container
-    setTimeout(()=> MobileMenu.switch_filter_list(),800)
+    setTimeout(()=> MobileMenu.switch_filter_list(),100)
 }
 
 const mob_filter_by_prop = function(e){
@@ -70,11 +71,41 @@ const mob_filter_by_prop = function(e){
     setTimeout(()=> MobileMenu.switch_filter_list(),800)
 }
 
+const mob_action_dispatcher = function(e){
+
+    //1. Get the element clicked
+    const btn = e.target.closest("li");
+    if(!btn) return;
+
+    //2. Get action
+    const action = btn.dataset.action;
+
+    //3. Check actions
+    if(action === "reset-filter"){
+        reset_filters();
+        setTimeout(()=> MobileMenu.switch_actions(),100)
+        return;
+    }
+
+    if(action === "map-view-all"){
+        MobileMenu.close_workout_window();
+        show_all_workouts();
+        setTimeout(()=> MobileMenu.switch_actions(),100)
+    }
+
+    if(action === "delete-all-workouts"){
+        MobileMenu.close_workout_window();
+        delete_all_workouts();
+    }
+
+}
+
 export const  init_mobile_menu = function(){
-    MobileMenu.addHandlerCloseWorkoutWindow(close_content);
-    MobileMenu.addHandlerOpenContent(open_content);
+    MobileMenu.addHandlerCloseWorkoutWindow(mob_close_content);
+    MobileMenu.addHandlerOpenContent(mob_open_content);
     MobileMenu.addHandlerSwitchFilterList(control_switch_filters);
     MobileMenu.addHandlerSwitchActions(control_switch_actions);
     MobileMenu.addHandlerFilterList(mob_filter_by_type);
     MobileMenu.addHandlerPropFilter(mob_filter_by_prop);
+    MobileMenu.addHandlerActions(mob_action_dispatcher)
 }   

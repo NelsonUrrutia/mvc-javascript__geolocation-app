@@ -8,7 +8,7 @@ import { show_all_markers } from "./_map.js";
 import { modal_window, toast_window } from "./_modal_windows.js";
 import { CustomModalSettings } from "../helpers.js";
 
-const delete_all_workouts = async function(){
+export const delete_all_workouts = async function(){
     //1. Show Modal to confirm
     const delete_workouts = await modal_window(CustomModalSettings.messages.workouts.delete_workouts_title,
                                                 CustomModalSettings.messages.workouts.delete_workout_copy,
@@ -76,7 +76,7 @@ const sort_by_props = function(event){
 
 }
 
-const reset_filters = function(){
+export const reset_filters = function(){
     //1. Clear State filtered array
     clear_filtered_array();
 
@@ -90,7 +90,7 @@ const reset_filters = function(){
     SortMenu.close_active_filters();
 }
 
-const show_all_workouts = () => show_all_markers();
+export const show_all_workouts = () => show_all_markers();
 
 export const init_sort_menu = function(){
     SortMenu.addHandlerDeleteAllWorkouts(delete_all_workouts);

@@ -5,7 +5,8 @@ import { render_workouts_cards } from "./_render_workout.js";
 import { State } from "../models/State.js";
 import RenderWorkouts from "../views/RenderWorkouts.js";
 import { modal_window, toast_window } from "./_modal_windows.js";
-import { CustomModalSettings } from "../helpers.js";
+import { mobile_content_switch, CustomModalSettings } from "../helpers.js";
+
 
 const submit_event = function(data){    
     
@@ -15,6 +16,7 @@ const submit_event = function(data){
     //2.Edit workout    
     if(workout_id !== '') {
         const edited_workout = edit_workout(data);
+        mobile_content_switch(false)
         if(edited_workout === 1){
             toast_window(CustomModalSettings.messages.workouts.edited_workout_succes,
                 CustomModalSettings.messages.workouts.edited_workout_copy,
@@ -30,6 +32,8 @@ const submit_event = function(data){
     //3. Save new workout
     if(workout_id === "") {
         const results_save_workout = save_workout(data);
+
+        mobile_content_switch(false)
 
         if(results_save_workout === 1){
             toast_window(CustomModalSettings.messages.workouts.saved_workout_title,

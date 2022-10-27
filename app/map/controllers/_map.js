@@ -7,7 +7,8 @@ import { set_location_state } from "../models/_map.js";
 import { get_workouts } from "./_render_workout.js";
 import RenderWorkouts from "../views/RenderWorkouts.js";
 import { toast_window } from "./_modal_windows.js";
-import { CustomModalSettings } from "../helpers.js";
+import { CustomModalSettings, mobile_content_switch } from "../helpers.js";
+
 
 const clickEvent = function(event){
     //1. Get latitude & longitude from the event
@@ -21,6 +22,9 @@ const clickEvent = function(event){
 
     //4. Hide empty message
     RenderWorkouts.hide_empty_message();
+
+    //5. Check if is mobile view
+    mobile_content_switch(true)
 }
 
 export const mark_saved_workouts = function(){       

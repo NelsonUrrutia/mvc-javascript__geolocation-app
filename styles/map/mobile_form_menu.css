@@ -140,10 +140,16 @@ MOBILE OPEN CONTENT BUTTON
     max-width: 2rem;
 } 
 
-[data-delete-all-workouts]{
+[data-action="delete-all-workouts"]{
     color: var(--red);
 }
 
-[data-app-info]{
+[data-action="app-info"]{
     color: var(--blue);
+}
+
+[data-action="app-info"] a{
+    text-decoration: none;
+    display: flex;
+    gap: 1rem;
 }
