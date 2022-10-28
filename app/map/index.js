@@ -16,8 +16,6 @@ init_mobile_menu();
 TODO:
 1. Unit testing (Learn and implement)
 
-2. Make a mobile verision + responsive
-
 4. Ability to draw lines and shapes instead of just points (make a new branch draw_lines)
     https://leaflet.github.io/Leaflet.draw/docs/leaflet-draw-latest.html
 

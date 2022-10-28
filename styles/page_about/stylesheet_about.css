@@ -49,6 +49,10 @@ header{
 
 /* Articles Header */
 
+.header_copy{
+    margin-bottom: 3rem;
+}
+
 .header_copy h1{
     font-size: 4rem;
     line-height: 5rem;
@@ -75,4 +79,12 @@ article p{
     font-size: 2rem;
 }
 
+@media(max-width: 900px){
+    .articles_container{
+        max-width: 90%;
+    }
 
+    .header_copy h1 span{
+        display: block;
+    }
+}

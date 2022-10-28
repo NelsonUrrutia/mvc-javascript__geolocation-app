@@ -9,7 +9,7 @@
 
 .tech_stack_icons{
     display: grid;
-    grid-template-columns: repeat(4,minmax(0, 20%));
+    grid-template-columns: repeat(3,minmax(0, 20%));
     grid-template-rows: repeat(2, 1fr);
     max-width: 75%;
     text-align: center;
@@ -31,6 +31,8 @@
 }
 
 .tech_stack_icons span{
+    display: block;
+    margin-top: auto;
     font-size: 2.5rem;
     font-weight: 600;
 }   
@@ -39,11 +41,27 @@
     text-decoration: none;
 }
 
+.tech_stack_icons img{
+    max-width: 8rem;
+    margin-top: auto;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.tech_stack_icons img[alt="Feather Icons"]{
+    max-width: 4rem;
+}
+
+.tech_stack_icons img[alt="Leaflet"]{
+    max-width: 12rem;
+}
+
 /* COMMON MEDIA QUERY */
 
 @media(max-width: 900px){
     .tech_stack_icons{
-        max-width: 90%;
+        max-width: 95%;
+        gap: 2rem;
         grid-template-columns: repeat(2,minmax(0, 50%));
     }
 }
