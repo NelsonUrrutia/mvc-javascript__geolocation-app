@@ -19,17 +19,6 @@ TODO:
 4. Ability to draw lines and shapes instead of just points (make a new branch draw_lines)
     https://leaflet.github.io/Leaflet.draw/docs/leaflet-draw-latest.html
 
-7.About Page informacion de la aplicacion
-    -> inclyuendo gifs con explicaciones
-    -> Mostrar descripcion de la app
-    -> Arquitectura
-    -> Como se guarda la info, no es un proyecto comercial
-    -> Poner un icono de informacion en la esquina para desplegar la info
-    -> Link a github
-    -> Hacer mensaje en linkedin
-    -> Nombrar el curso de JavaScript y poner link
-    ->Popup con info general y como usar al iniciar la app
-
 9. Make darkmode
 
 10. Make README with same Info
