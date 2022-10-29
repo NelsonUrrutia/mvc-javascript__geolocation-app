@@ -21,5 +21,7 @@ TODO:
 
 9. Make darkmode
 
+11. Make popup with how to use app when load
+
 10. Make README with same Info
  */
