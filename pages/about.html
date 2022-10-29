@@ -29,9 +29,9 @@
                 <h2> A JavaScript MVC project </h2>
             </div>
 
-            <h3>Hi! 👋🏻 and welcome to this little JavaScript Project</h3>
+            <p>Hi! 👋🏻 and welcome to this little JavaScript Project.</p>
 
-            <h4><b>SHORT DESCRIPTION</b></h4>
+            <h3><b>SHORT DESCRIPTION</b></h3>
             <p>
                 This project is based on the course
                 <a href="https://www.udemy.com/course/the-complete-javascript-course/" target="_blank">
@@ -40,7 +40,7 @@
             </p>
 
             <p>
-                The only purpose of this project is practice what I learned in the Course. <br>
+                The only purpose of this project is practice what I learned in the Course.
                 It is worth clarifying that it is not a commercial project, nor do I seek financial compensation. 
                 <b>It is an educational project.</b> 
             </p>
@@ -50,11 +50,73 @@
                 More about that at the "Tech Info" section.
             </p>
 
-            <h4><b>APP 101</b></h4>
             <p>
-                The APP will help you to: save the information and visualize in the map  your workouts. <br>
-
+                The APP will help you to save the information of your workouts and visualize the places you workout in a map. <br>
+                You can choose two types of workouts: Cycling or Running. And save this data:
             </p>
+            <ul>
+                <li>Time</li>
+                <li>Distance</li>
+                <li>Candence (for running)</li>
+                <li>Elevation Gain (for cycling)</li>
+            </ul>
+            <p>Also you can filter by type and properties (time or distance).</p>
+            <p>The App saves the data in the localStorage. This allows data persistence, if you close the browser
+                and return to the app, the information still be there.
+            </p>
+
+            <h3><b>APP 101</b></h3>
+            <ul>
+                <li>
+                    <b>How to save a workout?</b>
+                    <ol>
+                        <li>Search for the location at the map and click it.</li>
+                        <li>A form will appear with the inputs to fill.</li>
+                        <li>Once you filled the form, click "SAVE".</li>
+                    </ol>
+                </li>
+                <li>
+                    <b>How to edit a workout?</b>
+                    <ol>
+                        <li>Search the workout and click the yellow icon.</li>
+                        <li>Click the "Edit" button in the popup</li>
+                        <li>Edit the info at the form, and click save.</li>
+                    </ol>
+                </li>
+                <li>
+                    <b>How to delete a workout</b>
+                    <ol>
+                        <li>Search the workout and click the red icon.</li>
+                        <li>Click the "Delete" button in the popup.</li>
+                    </ol>
+                </li>
+                <li>
+                    <b>Filters</b>
+                    <ul>
+                        <li>In desktop, click the dropdowns.</li>
+                        <li>In mobile:
+                            <ol>
+                                <li>Click the button on the down left corner.</li>
+                                <li>Click the "Filters" button.</li>
+                            </ol>
+                        </li>
+                    </ul>
+                </li>
+                <li>
+                    <b>Actions</b>
+                    <ul>
+                        <li>In desktop view, you will see button. Hover them to see the description.</li>
+                        <li>In mobile view:
+                            <ol>
+                                <li>Click the button on the down left corner.</li>
+                                <li>Click the "Actions" button.</li>
+                            </ol>
+                        </li>
+                    </ul>
+                    <span>In desktop view, you will see buttons with different actions.</span>
+                    <span>In mobile view, you will see a list with actions.</span>
+                </li>
+            </ul>
         </article>
 
         <article data-nav-handle="tec_info" class="hidden">

@@ -70,13 +70,17 @@ header{
 /*  Articles container */
 
 article h3{
-    display: inline;
-    border-bottom: 2px solid var(--grey_500);
     font-size: 3rem;
+    margin-top: 3rem;
 }
 
-article p{
+article :is(p, li){
     font-size: 2rem;
+    line-height: 4rem;
+}
+
+article :is(ol, ul){
+    margin-left: 3rem;
 }
 
 @media(max-width: 900px){
