@@ -17,7 +17,7 @@
     z-index: 10001;
 
     width: 45rem;
-    height: 15rem;
+    height: 20rem;
     padding: 1rem;
     border-radius: 5px;
     
@@ -61,7 +61,7 @@
     opacity: 0.8;
 }
 
-button#delete, button#edit{
+button#delete, button#edit, button#close{
     display: none;
 }
 
@@ -71,6 +71,10 @@ button#delete, button#edit{
 
 #global__window.edit button#edit{
     display: block;
+}
+#global__window.info button#cancel_delete{
+    margin-left: auto;
+    margin-right: auto;
 }
 
 button#delete{
