@@ -13,17 +13,3 @@ init_sort_menu();
 init_modal_window();
 init_mobile_menu();
 show_intro_modal();
-
-/**
-TODO:
-1. Unit testing (Learn and implement)
-
-4. Ability to draw lines and shapes instead of just points (make a new branch draw_lines)
-    https://leaflet.github.io/Leaflet.draw/docs/leaflet-draw-latest.html
-
-9. Make darkmode
-
-11. Make popup with how to use app when load
-
-10. Make README with same Info
- */
