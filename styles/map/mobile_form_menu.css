@@ -7,7 +7,7 @@ MOBILE OPEN CONTENT BUTTON
 #mobile_show_content{
     position: absolute;
     left: 1rem;
-    bottom: 1rem;
+    bottom: 5rem;
     display: none;
     background-color: var(--grey_600);
     height: 7.5rem;
