@@ -180,3 +180,8 @@ button#edit{
     border-left-color: var(--yellow);
 }
 
+
+img{
+    max-width: 2rem;
+    display: inline;
+}
